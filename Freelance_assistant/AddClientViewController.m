@@ -9,6 +9,7 @@
 #import "AddClientViewController.h"
 #import "AppDelegate.h"
 #import "SWRevealViewController.h"
+#import "Client.h"
 
 @interface AddClientViewController ()
 {
@@ -20,7 +21,6 @@
 @implementation AddClientViewController
 @synthesize firstNameTextField = _firstNameTextField;
 @synthesize lastNameTextField = _lastNameTextField;
-
 @synthesize  companyField=_companyField;
 @synthesize  addressField=_addressField;
 @synthesize  addressField2=_addressField2;
@@ -32,6 +32,8 @@
 @synthesize  emailField=_emailField;
 @synthesize paymentTerms=_paymentTerms;
 @synthesize clientsArray=_clientsArray;
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -48,6 +50,8 @@
     
     AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
     context = [appdelegate managedObjectContext];
+
+   
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,7 +88,6 @@
         NSLog(@"4");
         paymentTerm = @"Other";
     }
-    
     [newClient setValue:self.firstNameTextField.text forKey:@"firstName"];
     [newClient setValue:self.lastNameTextField.text forKey:@"lastName"];
     [newClient setValue:self.companyField.text forKey:@"company"];
@@ -101,33 +104,7 @@
     [context save:&err];
 }
 
-#pragma TableView Delegate Methods
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    return 1;
-	
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return 1;
-}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        
-        
-    }
-    return cell;
-}
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
 @end

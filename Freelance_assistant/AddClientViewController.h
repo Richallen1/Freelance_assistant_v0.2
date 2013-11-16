@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreDataTableViewController.h"
 
 @interface AddClientViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 

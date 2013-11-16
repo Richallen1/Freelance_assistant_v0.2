@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Client" syncable="YES">
+    <entity name="Client" representedClassName="Client" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="address2" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,17 +13,19 @@
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="clientInvoices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Invoice" inverseName="clientForInvoice" inverseEntity="Invoice" syncable="YES"/>
     </entity>
-    <entity name="Invoice" syncable="YES">
+    <entity name="Invoice" representedClassName="Invoice" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="invoiceNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subTotal" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="total" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="vat" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="clientForInvoice" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="clientInvoices" inverseEntity="Client" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Client" positionX="3249" positionY="4637" width="128" height="223"/>
-        <element name="Invoice" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Client" positionX="4455" positionY="-5895" width="128" height="238"/>
+        <element name="Invoice" positionX="4149" positionY="-5917" width="128" height="148"/>
     </elements>
 </model>

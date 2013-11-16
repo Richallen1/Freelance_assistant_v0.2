@@ -28,6 +28,11 @@
 		9B745C0B18310D66002954A4 /* iPadMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C0518310D66002954A4 /* iPadMainViewController.m */; };
 		9B745C0C18310D66002954A4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C0718310D66002954A4 /* SWRevealViewController.m */; };
 		9B745C0F18310E57002954A4 /* AddClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C0E18310E57002954A4 /* AddClientViewController.m */; };
+		9B745C1E183252E9002954A4 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C1D183252E9002954A4 /* Client.m */; };
+		9B745C21183252E9002954A4 /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C20183252E9002954A4 /* Invoice.m */; };
+		9B745C27183253F3002954A4 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C26183253F3002954A4 /* CoreDataTableViewController.m */; };
+		9B745C2D18328A15002954A4 /* ClientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C2C18328A15002954A4 /* ClientsTableViewController.m */; };
+		9B745C341833CC1B002954A4 /* ClientDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C331833CC1B002954A4 /* ClientDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +74,16 @@
 		9B745C0718310D66002954A4 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		9B745C0D18310E57002954A4 /* AddClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClientViewController.h; sourceTree = "<group>"; };
 		9B745C0E18310E57002954A4 /* AddClientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddClientViewController.m; sourceTree = "<group>"; };
+		9B745C1C183252E9002954A4 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
+		9B745C1D183252E9002954A4 /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
+		9B745C1F183252E9002954A4 /* Invoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoice.h; sourceTree = "<group>"; };
+		9B745C20183252E9002954A4 /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoice.m; sourceTree = "<group>"; };
+		9B745C25183253F3002954A4 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		9B745C26183253F3002954A4 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		9B745C2B18328A15002954A4 /* ClientsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientsTableViewController.h; sourceTree = "<group>"; };
+		9B745C2C18328A15002954A4 /* ClientsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientsTableViewController.m; sourceTree = "<group>"; };
+		9B745C321833CC1B002954A4 /* ClientDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientDetailViewController.h; sourceTree = "<group>"; };
+		9B745C331833CC1B002954A4 /* ClientDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +146,7 @@
 		9B745BD318310D3E002954A4 /* Freelance_assistant */ = {
 			isa = PBXGroup;
 			children = (
+				9B745C1B183252C1002954A4 /* Core Data */,
 				9B745C1418310E9A002954A4 /* Common Classes */,
 				9B745C1318310E92002954A4 /* Application */,
 				9B745C1118310E6E002954A4 /* iPhone */,
@@ -141,9 +157,12 @@
 				9B745C0518310D66002954A4 /* iPadMainViewController.m */,
 				9B745C0D18310E57002954A4 /* AddClientViewController.h */,
 				9B745C0E18310E57002954A4 /* AddClientViewController.m */,
+				9B745C2B18328A15002954A4 /* ClientsTableViewController.h */,
+				9B745C2C18328A15002954A4 /* ClientsTableViewController.m */,
+				9B745C321833CC1B002954A4 /* ClientDetailViewController.h */,
+				9B745C331833CC1B002954A4 /* ClientDetailViewController.m */,
 				9B745C1218310E7C002954A4 /* Libraries */,
 				9B745BE218310D3E002954A4 /* Images.xcassets */,
-				9B745BDF18310D3E002954A4 /* Freelance_assistant.xcdatamodeld */,
 				9B745BD418310D3E002954A4 /* Supporting Files */,
 			);
 			path = Freelance_assistant;
@@ -217,6 +236,20 @@
 			children = (
 			);
 			name = "Common Classes";
+			sourceTree = "<group>";
+		};
+		9B745C1B183252C1002954A4 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				9B745C1C183252E9002954A4 /* Client.h */,
+				9B745C1D183252E9002954A4 /* Client.m */,
+				9B745C1F183252E9002954A4 /* Invoice.h */,
+				9B745C20183252E9002954A4 /* Invoice.m */,
+				9B745BDF18310D3E002954A4 /* Freelance_assistant.xcdatamodeld */,
+				9B745C25183253F3002954A4 /* CoreDataTableViewController.h */,
+				9B745C26183253F3002954A4 /* CoreDataTableViewController.m */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,9 +351,14 @@
 			files = (
 				9B745BDE18310D3E002954A4 /* AppDelegate.m in Sources */,
 				9B745C0F18310E57002954A4 /* AddClientViewController.m in Sources */,
+				9B745C27183253F3002954A4 /* CoreDataTableViewController.m in Sources */,
 				9B745C0B18310D66002954A4 /* iPadMainViewController.m in Sources */,
+				9B745C341833CC1B002954A4 /* ClientDetailViewController.m in Sources */,
 				9B745C0A18310D66002954A4 /* iPadSideBarViewController.m in Sources */,
+				9B745C1E183252E9002954A4 /* Client.m in Sources */,
 				9B745BE118310D3E002954A4 /* Freelance_assistant.xcdatamodeld in Sources */,
+				9B745C2D18328A15002954A4 /* ClientsTableViewController.m in Sources */,
+				9B745C21183252E9002954A4 /* Invoice.m in Sources */,
 				9B745BDA18310D3E002954A4 /* main.m in Sources */,
 				9B745C0C18310D66002954A4 /* SWRevealViewController.m in Sources */,
 			);
@@ -525,6 +563,7 @@
 				9B745BFC18310D3E002954A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B745BFD18310D3E002954A4 /* Build configuration list for PBXNativeTarget "Freelance_assistantTests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +572,7 @@
 				9B745BFF18310D3E002954A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

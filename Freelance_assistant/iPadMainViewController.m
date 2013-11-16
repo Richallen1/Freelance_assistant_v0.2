@@ -40,5 +40,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)invoicesDue
+{
+    //Search for all invoices that have a due date priror to todays date
+    
+}
 
+-(void) upcomingCalendarEvents
+{
+
+}
 @end
