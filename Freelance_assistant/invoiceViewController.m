@@ -7,14 +7,12 @@
 //
 
 #import "invoiceViewController.h"
-
+#import "AppDelegate.h"
 
 @interface invoiceViewController ()<AddChargeTableViewDelegate>
 {
     NSMutableArray *arr;
-//    float total;
-//    float subTotal;
-//    float vat;
+    NSManagedObjectContext *context;
 }
 
 @property (nonatomic, strong) UIPopoverController *popoverController;
@@ -26,7 +24,6 @@
 @synthesize userCompanyName=_userCompanyName;
 @synthesize userAddress1=_userAddress1;
 @synthesize userAddress2=_userAddress2;
-
 @synthesize clientName=_clientName;
 @synthesize projectName=_projectName;
 @synthesize invoiceNumber=_invoiceNumber;
@@ -37,6 +34,8 @@
 @synthesize editButton=_editButton;
 @synthesize doneButton=_doneButton;
 @synthesize tblView;
+@synthesize invoiceSelected=_invoiceSelected;
+
 
 -(void) viewWillAppear:(BOOL)animated
 {
@@ -49,11 +48,27 @@
     _doneButton.width = 0.01;
     
     //LOAD USER DATA FROM NSUSER DEFAULTS
+    [self getUserInformation];
+    
+    //Core Data Context Declaration from App delegate shared context
+    AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
+    context = [appdelegate managedObjectContext];
 
-    _userCompanyName.text = @"Name";
-    _userAddress1.text = @"Name";
-    _userAddress2.text = @"Name";
 }
+- (void)getUserInformation
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"User_Name"] != nil) {
+        _userCompanyName.text = [defaults objectForKey:@"User_Name"];
+    }
+    if ([defaults objectForKey:@"User_Address_1"] != nil) {
+        _userAddress1.text = [defaults objectForKey:@"User_Address_1"];
+    }
+    if ([defaults objectForKey:@"User_Address_2"] != nil) {
+       _userAddress2.text = [defaults objectForKey:@"User_Address_2"];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -273,5 +288,21 @@
         [tblView setEditing: NO animated: YES];
     }
 }
+- (IBAction)completeInvoice:(id)sender
+{
+    //[_invoiceSelected setValue:firstNameText.text forKey:@"firstName"];
+    
+    NSError *err;
+    [context save:&err];
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
 
 @end
+
+
+
+
+
+
+

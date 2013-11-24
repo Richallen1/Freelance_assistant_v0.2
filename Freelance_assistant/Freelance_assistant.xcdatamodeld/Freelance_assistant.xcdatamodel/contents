@@ -23,9 +23,20 @@
         <attribute name="total" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="vat" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="clientForInvoice" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="clientInvoices" inverseEntity="Client" syncable="YES"/>
+        <relationship name="invoice_charges" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Invoice_charges" inverseName="invoice_head" inverseEntity="Invoice_charges" syncable="YES"/>
+    </entity>
+    <entity name="Invoice_charges" representedClassName="Invoice_charges" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qty" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vat" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="invoice_head" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Invoice" inverseName="invoice_charges" inverseEntity="Invoice" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Client" positionX="4455" positionY="-5895" width="128" height="238"/>
-        <element name="Invoice" positionX="4149" positionY="-5917" width="128" height="148"/>
+        <element name="Client" positionX="4498" positionY="-5782" width="128" height="238"/>
+        <element name="Invoice" positionX="4167" positionY="-5599" width="128" height="163"/>
+        <element name="Invoice_charges" positionX="3852" positionY="-5692" width="128" height="148"/>
     </elements>
 </model>

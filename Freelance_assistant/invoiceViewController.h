@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "AddChargeTableViewController.h"
-
+#import "Invoice.h"
+#import "Invoice_charges.h"
 
 @interface invoiceViewController : UIViewController <UIPopoverControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *userCompanyName;
@@ -25,14 +26,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
-
+@property (strong, nonatomic) Invoice *invoiceSelected;
 
 
 - (void) addChargeViewController:(AddChargeTableViewController *)sender chargeDictionary:(id)dict;
-- (void) updateTotals:(NSMutableDictionary *)dict;
--(void)removeRowAndUpdateForRow:(NSIndexPath *)indexPath;
+- (void)removeRowAndUpdateForRow:(NSIndexPath *)indexPath;
 - (IBAction)editInvoice:(id)sender;
--(void)updateLabels;
+- (void)updateLabels;
+- (void)getUserInformation;
+- (IBAction)completeInvoice:(id)sender;
 
 
 @end

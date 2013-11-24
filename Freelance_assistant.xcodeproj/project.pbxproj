@@ -29,12 +29,14 @@
 		9B745C0B18310D66002954A4 /* iPadMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C0518310D66002954A4 /* iPadMainViewController.m */; };
 		9B745C0C18310D66002954A4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C0718310D66002954A4 /* SWRevealViewController.m */; };
 		9B745C0F18310E57002954A4 /* AddClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C0E18310E57002954A4 /* AddClientViewController.m */; };
-		9B745C1E183252E9002954A4 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C1D183252E9002954A4 /* Client.m */; };
-		9B745C21183252E9002954A4 /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C20183252E9002954A4 /* Invoice.m */; };
 		9B745C27183253F3002954A4 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C26183253F3002954A4 /* CoreDataTableViewController.m */; };
 		9B745C2D18328A15002954A4 /* ClientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C2C18328A15002954A4 /* ClientsTableViewController.m */; };
 		9B745C341833CC1B002954A4 /* ClientDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C331833CC1B002954A4 /* ClientDetailViewController.m */; };
 		9B745C3718381404002954A4 /* invoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C3618381404002954A4 /* invoiceViewController.m */; };
+		F4E9FDDC18426B0800102544 /* InvoicesOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E9FDDB18426B0800102544 /* InvoicesOverviewViewController.m */; };
+		F4E9FE03184272EB00102544 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E9FE02184272EB00102544 /* Client.m */; };
+		F4E9FE0C1842734E00102544 /* Invoice_charges.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E9FE0B1842734E00102544 /* Invoice_charges.m */; };
+		F4E9FE0F1842734F00102544 /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E9FE0E1842734F00102544 /* Invoice.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,10 +80,6 @@
 		9B745C0718310D66002954A4 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		9B745C0D18310E57002954A4 /* AddClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddClientViewController.h; sourceTree = "<group>"; };
 		9B745C0E18310E57002954A4 /* AddClientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddClientViewController.m; sourceTree = "<group>"; };
-		9B745C1C183252E9002954A4 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
-		9B745C1D183252E9002954A4 /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
-		9B745C1F183252E9002954A4 /* Invoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoice.h; sourceTree = "<group>"; };
-		9B745C20183252E9002954A4 /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoice.m; sourceTree = "<group>"; };
 		9B745C25183253F3002954A4 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		9B745C26183253F3002954A4 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		9B745C2B18328A15002954A4 /* ClientsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientsTableViewController.h; sourceTree = "<group>"; };
@@ -90,6 +88,14 @@
 		9B745C331833CC1B002954A4 /* ClientDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientDetailViewController.m; sourceTree = "<group>"; };
 		9B745C3518381404002954A4 /* invoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = invoiceViewController.h; sourceTree = "<group>"; };
 		9B745C3618381404002954A4 /* invoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = invoiceViewController.m; sourceTree = "<group>"; };
+		F4E9FDDA18426B0800102544 /* InvoicesOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesOverviewViewController.h; sourceTree = "<group>"; };
+		F4E9FDDB18426B0800102544 /* InvoicesOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesOverviewViewController.m; sourceTree = "<group>"; };
+		F4E9FE01184272EB00102544 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Client.h; path = ../Client.h; sourceTree = "<group>"; };
+		F4E9FE02184272EB00102544 /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Client.m; path = ../Client.m; sourceTree = "<group>"; };
+		F4E9FE0A1842734E00102544 /* Invoice_charges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoice_charges.h; sourceTree = "<group>"; };
+		F4E9FE0B1842734E00102544 /* Invoice_charges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoice_charges.m; sourceTree = "<group>"; };
+		F4E9FE0D1842734F00102544 /* Invoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoice.h; sourceTree = "<group>"; };
+		F4E9FE0E1842734F00102544 /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoice.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +177,8 @@
 				9B745C3618381404002954A4 /* invoiceViewController.m */,
 				9B228DC8183BC0AE008CA80E /* AddChargeTableViewController.h */,
 				9B228DC9183BC0AE008CA80E /* AddChargeTableViewController.m */,
+				F4E9FDDA18426B0800102544 /* InvoicesOverviewViewController.h */,
+				F4E9FDDB18426B0800102544 /* InvoicesOverviewViewController.m */,
 				9B745C1218310E7C002954A4 /* Libraries */,
 				9B745BE218310D3E002954A4 /* Images.xcassets */,
 				9B745BD418310D3E002954A4 /* Supporting Files */,
@@ -251,10 +259,12 @@
 		9B745C1B183252C1002954A4 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				9B745C1C183252E9002954A4 /* Client.h */,
-				9B745C1D183252E9002954A4 /* Client.m */,
-				9B745C1F183252E9002954A4 /* Invoice.h */,
-				9B745C20183252E9002954A4 /* Invoice.m */,
+				F4E9FE01184272EB00102544 /* Client.h */,
+				F4E9FE02184272EB00102544 /* Client.m */,
+				F4E9FE0D1842734F00102544 /* Invoice.h */,
+				F4E9FE0E1842734F00102544 /* Invoice.m */,
+				F4E9FE0A1842734E00102544 /* Invoice_charges.h */,
+				F4E9FE0B1842734E00102544 /* Invoice_charges.m */,
 				9B745BDF18310D3E002954A4 /* Freelance_assistant.xcdatamodeld */,
 				9B745C25183253F3002954A4 /* CoreDataTableViewController.h */,
 				9B745C26183253F3002954A4 /* CoreDataTableViewController.m */,
@@ -360,19 +370,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B745BDE18310D3E002954A4 /* AppDelegate.m in Sources */,
+				F4E9FE0C1842734E00102544 /* Invoice_charges.m in Sources */,
 				9B745C3718381404002954A4 /* invoiceViewController.m in Sources */,
 				9B745C0F18310E57002954A4 /* AddClientViewController.m in Sources */,
 				9B745C27183253F3002954A4 /* CoreDataTableViewController.m in Sources */,
 				9B745C0B18310D66002954A4 /* iPadMainViewController.m in Sources */,
 				9B745C341833CC1B002954A4 /* ClientDetailViewController.m in Sources */,
 				9B745C0A18310D66002954A4 /* iPadSideBarViewController.m in Sources */,
-				9B745C1E183252E9002954A4 /* Client.m in Sources */,
 				9B228DCA183BC0AE008CA80E /* AddChargeTableViewController.m in Sources */,
+				F4E9FE03184272EB00102544 /* Client.m in Sources */,
 				9B745BE118310D3E002954A4 /* Freelance_assistant.xcdatamodeld in Sources */,
 				9B745C2D18328A15002954A4 /* ClientsTableViewController.m in Sources */,
-				9B745C21183252E9002954A4 /* Invoice.m in Sources */,
 				9B745BDA18310D3E002954A4 /* main.m in Sources */,
 				9B745C0C18310D66002954A4 /* SWRevealViewController.m in Sources */,
+				F4E9FE0F1842734F00102544 /* Invoice.m in Sources */,
+				F4E9FDDC18426B0800102544 /* InvoicesOverviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
