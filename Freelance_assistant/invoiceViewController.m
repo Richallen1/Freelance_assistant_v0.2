@@ -12,9 +12,9 @@
 @interface invoiceViewController ()<AddChargeTableViewDelegate>
 {
     NSMutableArray *arr;
-    float total;
-    float subTotal;
-    float vat;
+//    float total;
+//    float subTotal;
+//    float vat;
 }
 
 @property (nonatomic, strong) UIPopoverController *popoverController;
@@ -34,13 +34,25 @@
 @synthesize popoverController;
 @synthesize subTotalLabel=_subTotalLabel;
 @synthesize vatLabel=_vatLabel;
-
+@synthesize editButton=_editButton;
+@synthesize doneButton=_doneButton;
 @synthesize tblView;
 
+-(void) viewWillAppear:(BOOL)animated
+{
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	_invoiceRows = [[NSMutableArray alloc]init];
+    //Hide Done Button
+    _doneButton.width = 0.01;
+    
+    //LOAD USER DATA FROM NSUSER DEFAULTS
+
+    _userCompanyName.text = @"Name";
+    _userAddress1.text = @"Name";
+    _userAddress2.text = @"Name";
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,18 +60,48 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // If row is deleted, remove it from the list.
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self removeRowAndUpdateForRow:indexPath];
+    }
+}
+
+-(void)removeRowAndUpdateForRow:(NSIndexPath *)indexPath
+{
+    //Method Instance Vars
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+    dict = [_invoiceRows objectAtIndex:indexPath.row];
+    [_invoiceRows removeObjectAtIndex: indexPath.row];
+    [tblView reloadData];
+    [self updateLabels];
+}
+
 #pragma TableView Delegate Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 1;
-	
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-   // return 10;
-    
-    
+
     return [_invoiceRows count];
 }
 
@@ -154,22 +196,12 @@
     
     return cell;
 }
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
 }
-
-- (IBAction)addItemButton:(id)sender
-{
-
-    
-}
-
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
     if ([segue.identifier isEqualToString:@"charge_detail_segue"]) {
-        
         if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]]) {
             UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
             [self.popoverController dismissPopoverAnimated:YES];
@@ -177,26 +209,41 @@
         }
             [segue.destinationViewController setDelegate:self];
     }
-    
 }
-
-
 -(void) addChargeViewController:(AddChargeTableViewController *)sender chargeDictionary:(id)dict
 {
     NSLog(@"%@", dict);
     [_invoiceRows addObject:dict];
     [self.tblView reloadData];
-    [self updateTotals:dict];
+
+
+    float fl = [[dict objectForKey:@"subTotal"]floatValue];
+    NSLog(@"total - %f", fl);
+    
     NSLog(@"%lu", (unsigned long)[_invoiceRows count]);
  }
 
-- (void) updateTotals:(NSMutableDictionary *)dict
+
+-(void)updateLabels
 {
-    float totalFromDict = [[dict objectForKey:@"Total"] floatValue];
-    float vatFromDict = [[dict objectForKey:@"VAT"] floatValue];
+    float subTotal;
+    float vat = 0.00;
     
-    subTotal = subTotal+totalFromDict;
-    vat = vat+vatFromDict;
+    for (NSMutableDictionary *dict in _invoiceRows)
+    {
+        NSLog(@"Dictionary - %@", dict);
+        
+        float subTotalTemp = [[dict objectForKey:@"subTotal"] floatValue];
+        float vatTemp = [[dict objectForKey:@"VAT"] floatValue];
+        
+        NSLog(@"VAT Temp - %f", vatTemp);
+        NSLog(@"VAT - %f", vat);
+        
+        subTotal = subTotal+subTotalTemp;
+        vat = vat+vatTemp;
+    }
+
+    float total_UpdateLabel;
     
     NSString *vatLabelString = [NSString stringWithFormat:@"%0.2f", vat];
     _vatLabel.text = vatLabelString;
@@ -204,18 +251,27 @@
     NSString *subTotalLabelString = [NSString stringWithFormat:@"%0.2f", subTotal];
     _subTotalLabel.text = subTotalLabelString;
     
-    total = vat+subTotal;
+    total_UpdateLabel = subTotal+vat;
     
-    NSString *totalLabelString = [NSString stringWithFormat:@"%0.2f", total];
+    NSString *totalLabelString = [NSString stringWithFormat:@"%0.2f", total_UpdateLabel];
     _totalLabel.text = totalLabelString;
-    
-}
 
+}
 - (IBAction)editInvoice:(id)sender
 {
     NSLog(@"Entered Editing Mode....");
     
-
+    if (tblView.editing == NO)
+    {
+        _editButton.tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+        [tblView setEditing: YES animated: YES];
+    }
+    else
+    {
+        NSLog(@"End Editing Mode....");
+        _editButton.tintColor = nil;
+        [tblView setEditing: NO animated: YES];
+    }
 }
 
 @end

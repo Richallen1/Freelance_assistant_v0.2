@@ -85,7 +85,10 @@
     
     NSNumber *NSVat = [[NSNumber alloc]initWithFloat:vatAmount];
     NSNumber *NSTotal = [[NSNumber alloc]initWithFloat:total];
-
+    float subTotal = total - vatAmount;
+    NSNumber *NSsubTotal = [[NSNumber alloc]initWithFloat:subTotal];
+    
+    
     if ([_dateField.text  isEqual: @""]) {
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"No Date" message:@"Please enter the date of the charge" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
         [alertView show];
@@ -115,6 +118,7 @@
         [dict setObject:_qtyField.text forKey:@"Qty"];
         [dict setObject:NSTotal forKey:@"Total"];
         [dict setObject:NSVat forKey:@"VAT"];
+        [dict setObject:NSsubTotal forKey:@"subTotal"];
         [self.delegate addChargeViewController:self chargeDictionary:dict];
     }
 }

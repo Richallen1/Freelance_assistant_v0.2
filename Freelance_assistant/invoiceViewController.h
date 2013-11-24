@@ -23,13 +23,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *subTotalLabel;
 @property (weak, nonatomic) IBOutlet UILabel *vatLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 
-- (IBAction)addItemButton:(id)sender;
+
 - (void) addChargeViewController:(AddChargeTableViewController *)sender chargeDictionary:(id)dict;
 - (void) updateTotals:(NSMutableDictionary *)dict;
-
+-(void)removeRowAndUpdateForRow:(NSIndexPath *)indexPath;
 - (IBAction)editInvoice:(id)sender;
+-(void)updateLabels;
 
 
 @end

@@ -983,7 +983,6 @@
                                 <items>
                                     <barButtonItem title="Add Item" id="GwK-to-5XS">
                                         <connections>
-                                            <action selector="addItemButton:" destination="qc0-Sp-w4a" id="p43-lR-5hr"/>
                                             <segue destination="fre-ap-kU7" kind="popover" identifier="charge_detail_segue" popoverAnchorBarButtonItem="GwK-to-5XS" id="Jqu-mh-ZHp">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
@@ -1045,6 +1044,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="clientName" destination="yyx-yc-B23" id="gmd-C1-dTj"/>
+                        <outlet property="editButton" destination="tjk-q1-Von" id="k1I-fp-A2g"/>
                         <outlet property="invoiceNumber" destination="75P-cm-NqZ" id="TFW-hT-xrF"/>
                         <outlet property="projectName" destination="EcP-wd-kVl" id="bqc-rV-NBa"/>
                         <outlet property="subTotalLabel" destination="zDz-5f-6t8" id="WCg-TY-J0F"/>
