@@ -35,7 +35,7 @@
 @synthesize doneButton=_doneButton;
 @synthesize tblView;
 @synthesize invoiceSelected=_invoiceSelected;
-
+@synthesize dateField=_dateField;
 
 -(void) viewWillAppear:(BOOL)animated
 {
@@ -43,6 +43,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (_invoiceSelected != nil) {
+        //Passed Parameter not empty
+        
+        
+    }
 	_invoiceRows = [[NSMutableArray alloc]init];
     //Hide Done Button
     _doneButton.width = 0.01;
@@ -129,7 +135,6 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-
     //Build Table Header
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 722, 40)];
     //headerView.backgroundColor = [UIColor grayColor];
@@ -290,12 +295,28 @@
 }
 - (IBAction)completeInvoice:(id)sender
 {
-    //[_invoiceSelected setValue:firstNameText.text forKey:@"firstName"];
     
-    NSError *err;
-    [context save:&err];
+    NSLog(@"kjlkj");
+    
+    Invoice *inv = nil;
+    
+    inv  = [NSEntityDescription insertNewObjectForEntityForName:@"Invoice" inManagedObjectContext:context];
+    inv.date = _dateField.text;
+    inv.invoiceNumber = _invoiceNumber.text;
+    inv.projectName = _projectName.text;
+    inv.subTotal = _subTotalLabel.text;
+    inv.total = _totalLabel.text;
+    inv.vat = _vatLabel.text;
+
     [self.navigationController popViewControllerAnimated:YES];
     
+}
+-(void)fillDataWithInvoiceSelected
+{
+    _dateField.text = _invoiceSelected.date;
+    
+
+
 }
 
 @end

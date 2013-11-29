@@ -2,7 +2,7 @@
 //  Invoice.h
 //  Freelance_assistant
 //
-//  Created by Richard Allen on 24/11/2013.
+//  Created by Rich Allen on 27/11/2013.
 //  Copyright (c) 2013 Rich Allen. All rights reserved.
 //
 

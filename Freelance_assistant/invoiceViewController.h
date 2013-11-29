@@ -27,6 +27,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 @property (strong, nonatomic) Invoice *invoiceSelected;
+@property (strong, nonatomic) NSMutableDictionary *projectInfo;
+@property (weak, nonatomic) IBOutlet UITextField *dateField;
+
 
 
 - (void) addChargeViewController:(AddChargeTableViewController *)sender chargeDictionary:(id)dict;
@@ -35,6 +38,6 @@
 - (void)updateLabels;
 - (void)getUserInformation;
 - (IBAction)completeInvoice:(id)sender;
-
+-(void)fillDataWithInvoiceSelected;
 
 @end

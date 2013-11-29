@@ -35,8 +35,8 @@
         <relationship name="invoice_head" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Invoice" inverseName="invoice_charges" inverseEntity="Invoice" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Client" positionX="4498" positionY="-5782" width="128" height="238"/>
-        <element name="Invoice" positionX="4167" positionY="-5599" width="128" height="163"/>
-        <element name="Invoice_charges" positionX="3852" positionY="-5692" width="128" height="148"/>
+        <element name="Client" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Invoice" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Invoice_charges" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

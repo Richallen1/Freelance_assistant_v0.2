@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreDataTableViewController.h"
 
-@interface InvoicesOverviewViewController : UIViewController <UITableViewDataSource, UITableViewDataSource>
+
+@interface InvoicesOverviewViewController : CoreDataTableViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
-@property (weak, nonatomic) IBOutlet UITableView *invTableView;
+
 
 
 @end
