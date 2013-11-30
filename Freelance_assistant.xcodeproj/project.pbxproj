@@ -35,6 +35,7 @@
 		9B745C2D18328A15002954A4 /* ClientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C2C18328A15002954A4 /* ClientsTableViewController.m */; };
 		9B745C341833CC1B002954A4 /* ClientDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C331833CC1B002954A4 /* ClientDetailViewController.m */; };
 		9B745C3718381404002954A4 /* invoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C3618381404002954A4 /* invoiceViewController.m */; };
+		F44B252F1848A96A0014D97F /* ClientPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F44B252E1848A96A0014D97F /* ClientPickerViewController.m */; };
 		F4E9FDDC18426B0800102544 /* InvoicesOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E9FDDB18426B0800102544 /* InvoicesOverviewViewController.m */; };
 		F4E9FE03184272EB00102544 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E9FE02184272EB00102544 /* Client.m */; };
 		F4E9FE0C1842734E00102544 /* Invoice_charges.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E9FE0B1842734E00102544 /* Invoice_charges.m */; };
@@ -93,6 +94,8 @@
 		9B745C331833CC1B002954A4 /* ClientDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientDetailViewController.m; sourceTree = "<group>"; };
 		9B745C3518381404002954A4 /* invoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = invoiceViewController.h; sourceTree = "<group>"; };
 		9B745C3618381404002954A4 /* invoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = invoiceViewController.m; sourceTree = "<group>"; };
+		F44B252D1848A96A0014D97F /* ClientPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientPickerViewController.h; sourceTree = "<group>"; };
+		F44B252E1848A96A0014D97F /* ClientPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientPickerViewController.m; sourceTree = "<group>"; };
 		F4E9FDDA18426B0800102544 /* InvoicesOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesOverviewViewController.h; sourceTree = "<group>"; };
 		F4E9FDDB18426B0800102544 /* InvoicesOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesOverviewViewController.m; sourceTree = "<group>"; };
 		F4E9FE01184272EB00102544 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Client.h; path = ../Client.h; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 				9B228DC9183BC0AE008CA80E /* AddChargeTableViewController.m */,
 				F4E9FDDA18426B0800102544 /* InvoicesOverviewViewController.h */,
 				F4E9FDDB18426B0800102544 /* InvoicesOverviewViewController.m */,
+				F44B252D1848A96A0014D97F /* ClientPickerViewController.h */,
+				F44B252E1848A96A0014D97F /* ClientPickerViewController.m */,
 				9B382D2018450C1200C635D7 /* Categories */,
 				9B745C1218310E7C002954A4 /* Libraries */,
 				9B745BE218310D3E002954A4 /* Images.xcassets */,
@@ -399,6 +404,7 @@
 				9B745C0C18310D66002954A4 /* SWRevealViewController.m in Sources */,
 				9B382D1F18450C0900C635D7 /* Invoice+Create.m in Sources */,
 				F4E9FDDC18426B0800102544 /* InvoicesOverviewViewController.m in Sources */,
+				F44B252F1848A96A0014D97F /* ClientPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +529,7 @@
 				GCC_PREFIX_HEADER = "Freelance_assistant/Freelance_assistant-Prefix.pch";
 				INFOPLIST_FILE = "Freelance_assistant/Freelance_assistant-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -536,6 +543,7 @@
 				GCC_PREFIX_HEADER = "Freelance_assistant/Freelance_assistant-Prefix.pch";
 				INFOPLIST_FILE = "Freelance_assistant/Freelance_assistant-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

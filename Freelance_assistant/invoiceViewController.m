@@ -46,7 +46,7 @@
     
     if (_invoiceSelected != nil) {
         //Passed Parameter not empty
-        
+        [self fillDataWithInvoiceSelected];
         
     }
 	_invoiceRows = [[NSMutableArray alloc]init];
@@ -314,9 +314,13 @@
 -(void)fillDataWithInvoiceSelected
 {
     _dateField.text = _invoiceSelected.date;
+    _projectName.text = _invoiceSelected.projectName;
+    _invoiceNumber.text = _invoiceSelected.invoiceNumber;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     
-
-
+    return NO;
 }
 
 @end
