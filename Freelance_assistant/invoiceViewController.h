@@ -10,8 +10,9 @@
 #import "AddChargeTableViewController.h"
 #import "Invoice.h"
 #import "Invoice_charges.h"
+#import "ClientPickerViewController.h"
 
-@interface invoiceViewController : UIViewController <UIPopoverControllerDelegate>
+@interface invoiceViewController : UIViewController <UIPopoverControllerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *userCompanyName;
 @property (weak, nonatomic) IBOutlet UILabel *userAddress1;
 @property (weak, nonatomic) IBOutlet UILabel *userAddress2;
@@ -31,7 +32,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *dateField;
 
 
-
+- (void) clientPickerViewController:(ClientPickerViewController *)sender selectedClient:(id)client;
 - (void) addChargeViewController:(AddChargeTableViewController *)sender chargeDictionary:(id)dict;
 - (void)removeRowAndUpdateForRow:(NSIndexPath *)indexPath;
 - (IBAction)editInvoice:(id)sender;

@@ -9,15 +9,12 @@
 #import "invoiceViewController.h"
 #import "AppDelegate.h"
 
-@interface invoiceViewController ()<AddChargeTableViewDelegate>
+@interface invoiceViewController ()<AddChargeTableViewDelegate, ClientPickerViewDelegate>
 {
     NSMutableArray *arr;
     NSManagedObjectContext *context;
 }
-
 @property (nonatomic, strong) UIPopoverController *popoverController;
-
-
 @end
 
 @implementation invoiceViewController
@@ -43,6 +40,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //Get Date Info
+    NSDate *now = [[NSDate alloc] init];
+	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+	[dateFormat setDateFormat:@"dd/MM/yyyy"];
+	NSString *todaysDate = [dateFormat stringFromDate:now];
+	_dateField.text=todaysDate;
     
     if (_invoiceSelected != nil) {
         //Passed Parameter not empty
@@ -59,6 +62,8 @@
     //Core Data Context Declaration from App delegate shared context
     AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
     context = [appdelegate managedObjectContext];
+    
+    
 
 }
 - (void)getUserInformation
@@ -74,7 +79,6 @@
        _userAddress2.text = [defaults objectForKey:@"User_Address_2"];
     }
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -166,7 +170,7 @@
     CGRect dateFrame = CGRectMake(10, 15, 100, 20);
     UILabel *dateLabel = [[UILabel alloc] initWithFrame:dateFrame];
     dateLabel.tag = 0011;
-    //dateLabel.backgroundColor =[UIColor blueColor];
+    dateLabel.backgroundColor =[UIColor blueColor];
     dateLabel.font = [UIFont systemFontOfSize:16];
     dateLabel.text = [dict objectForKey:@"Date"];
     [cell.contentView addSubview:dateLabel];
@@ -174,7 +178,7 @@
     CGRect descFrame = CGRectMake(140, 15, 240, 20);
     UILabel *descLabel = [[UILabel alloc] initWithFrame:descFrame];
     descLabel.tag = 0011;
-    //descLabel.backgroundColor =[UIColor purpleColor];
+    descLabel.backgroundColor =[UIColor purpleColor];
     descLabel.font = [UIFont systemFontOfSize:16];
     descLabel.text = [dict objectForKey:@"Desc"];
     [cell.contentView addSubview:descLabel];
@@ -182,35 +186,35 @@
     CGRect priceFrame = CGRectMake(400, 15, 80, 20);
     UILabel *priceLabel = [[UILabel alloc] initWithFrame:priceFrame];
     priceLabel.tag = 0011;
-    //priceLabel.backgroundColor =[UIColor blueColor];
+    priceLabel.backgroundColor =[UIColor blueColor];
     priceLabel.font = [UIFont systemFontOfSize:16];
-    NSString *priceStr = [NSString stringWithFormat:@"£%@", [dict objectForKey:@"Price"]];
+    NSString *priceStr = [NSString stringWithFormat:@"£%0.2f", [[dict objectForKey:@"Price"]floatValue]];
     priceLabel.text = priceStr;
     [cell.contentView addSubview:priceLabel];
     
     CGRect qtyFrame = CGRectMake(500, 15, 40, 20);
     UILabel *qtyLabel = [[UILabel alloc] initWithFrame:qtyFrame];
     qtyLabel.tag = 0011;
-    //qtyLabel.backgroundColor =[UIColor blueColor];
+    qtyLabel.backgroundColor =[UIColor blueColor];
     qtyLabel.font = [UIFont systemFontOfSize:16];
     qtyLabel.text = [dict objectForKey:@"Qty"];
     [cell.contentView addSubview:qtyLabel];
     
-    CGRect vatFrame = CGRectMake(570, 15, 50, 20);
+    CGRect vatFrame = CGRectMake(560, 15, 50, 20);
     UILabel *vatLabel = [[UILabel alloc] initWithFrame:vatFrame];
     vatLabel.tag = 0011;
-    //vatLabel.backgroundColor =[UIColor blueColor];
+    vatLabel.backgroundColor =[UIColor blueColor];
     vatLabel.font = [UIFont systemFontOfSize:16];
-    NSString *vatTempStr = [NSString stringWithFormat:@"£%@", [dict objectForKey:@"VAT"]];
+    NSString *vatTempStr = [NSString stringWithFormat:@"£%0.2f", [[dict objectForKey:@"VAT"]floatValue]];
     vatLabel.text = vatTempStr;
     [cell.contentView addSubview:vatLabel];
     
-    CGRect totalFrame = CGRectMake(650, 15, 50, 20);
+    CGRect totalFrame = CGRectMake(630, 15, 80, 20);
     UILabel *totalLabel = [[UILabel alloc] initWithFrame:totalFrame];
     totalLabel.tag = 0011;
-    //totalLabel.backgroundColor =[UIColor redColor];
+    totalLabel.backgroundColor =[UIColor redColor];
     totalLabel.font = [UIFont systemFontOfSize:16];
-    NSString *totalTempStr = [NSString stringWithFormat:@"£%@", [dict objectForKey:@"Total"]];
+    NSString *totalTempStr = [NSString stringWithFormat:@"£%0.2f", [[dict objectForKey:@"Total"]floatValue]];
     totalLabel.text = totalTempStr;
     [cell.contentView addSubview:totalLabel];
     
@@ -229,18 +233,26 @@
         }
             [segue.destinationViewController setDelegate:self];
     }
+    if ([segue.identifier isEqualToString:@"client_segue"]) {
+        if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]]) {
+            UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
+            [self.popoverController dismissPopoverAnimated:YES];
+            self.popoverController = popoverSegue.popoverController;
+        }
+        [segue.destinationViewController setDelegate:self];
+    }
 }
 -(void) addChargeViewController:(AddChargeTableViewController *)sender chargeDictionary:(id)dict
 {
     NSLog(@"%@", dict);
     [_invoiceRows addObject:dict];
     [self.tblView reloadData];
-
-
+    
     float fl = [[dict objectForKey:@"subTotal"]floatValue];
     NSLog(@"total - %f", fl);
-    
     NSLog(@"%lu", (unsigned long)[_invoiceRows count]);
+    
+    [self updateLabels];
  }
 
 
@@ -295,11 +307,7 @@
 }
 - (IBAction)completeInvoice:(id)sender
 {
-    
-    NSLog(@"kjlkj");
-    
     Invoice *inv = nil;
-    
     inv  = [NSEntityDescription insertNewObjectForEntityForName:@"Invoice" inManagedObjectContext:context];
     inv.date = _dateField.text;
     inv.invoiceNumber = _invoiceNumber.text;
@@ -317,12 +325,17 @@
     _projectName.text = _invoiceSelected.projectName;
     _invoiceNumber.text = _invoiceSelected.invoiceNumber;
 }
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    
-    return NO;
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    return [textField resignFirstResponder];
 }
 
+- (void) clientPickerViewController:(ClientPickerViewController *)sender selectedClient:(id)client
+{
+    NSLog(@"INV Client - %@", client);
+    _clientName.text = client;
+    
+}
 @end
 
 

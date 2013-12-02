@@ -827,7 +827,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <segue destination="QD2-VT-hLx" kind="popover" popoverAnchorView="yyx-yc-B23" id="b2t-E9-ESq">
+                                    <segue destination="QD2-VT-hLx" kind="popover" identifier="client_segue" popoverAnchorView="yyx-yc-B23" id="6kn-DR-ZBD">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -1145,29 +1145,37 @@
                         <viewControllerLayoutGuide type="bottom" id="Hv8-3d-61F"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7u5-6M-B0d">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="308"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="250"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6qj-iM-Yid">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="216"/>
+                                <rect key="frame" x="0.0" y="34" width="450" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="QD2-VT-hLx" id="4IW-4p-a2E"/>
+                                    <outlet property="delegate" destination="QD2-VT-hLx" id="Aib-9L-Gjm"/>
+                                </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oq7-S6-Rl4">
-                                <rect key="frame" x="119" y="263" width="212" height="30"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Which Client are you invoicing? " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dl8-e6-meC">
+                                <rect key="frame" x="98" y="5" width="255" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="450" height="308"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="450" height="250"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="clientPicker" destination="6qj-iM-Yid" id="xrw-ae-hei"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKd-NI-FcD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4183" y="430"/>
+            <point key="canvasLocation" x="4106" y="215"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Qau-yW-d5i">

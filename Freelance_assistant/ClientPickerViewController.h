@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Client.h"
 
-@interface ClientPickerViewController : UIViewController
+@class ClientPickerViewController;
+
+@protocol ClientPickerViewDelegate
+@optional
+- (void) clientPickerViewController:(ClientPickerViewController *)sender selectedClient:(id)client;
+@end
+
+@interface ClientPickerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UIPickerView *clientPicker;
+@property (weak, nonatomic) id <ClientPickerViewDelegate> delegate;
+@property (strong, nonatomic) NSArray *clients;
 
 @end

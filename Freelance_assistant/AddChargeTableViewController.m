@@ -39,6 +39,13 @@
     vatAmount = 0;
     total = 0;
     vatRate = 0.2;
+    
+    //Get Date Info
+    NSDate *now = [[NSDate alloc] init];
+	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+	[dateFormat setDateFormat:@"dd/MM/yyyy"];
+	NSString *todaysDate = [dateFormat stringFromDate:now];
+	_dateField.text=todaysDate;
 }
 
 - (void)didReceiveMemoryWarning
