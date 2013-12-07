@@ -84,7 +84,7 @@
     clientLabel.textColor = [UIColor blackColor];
     [cell.contentView addSubview:clientLabel];
     
-    clientLabel.text = @"Client";
+    clientLabel.text = inv.clientForInvoice.company;
     
     //Compnay Name Label
     CGRect companyFrame = CGRectMake(350, 10, 200, 20);

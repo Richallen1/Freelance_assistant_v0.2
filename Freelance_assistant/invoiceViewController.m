@@ -8,11 +8,13 @@
 
 #import "invoiceViewController.h"
 #import "AppDelegate.h"
+#import "Client.h"
 
 @interface invoiceViewController ()<AddChargeTableViewDelegate, ClientPickerViewDelegate>
 {
     NSMutableArray *arr;
     NSManagedObjectContext *context;
+    Client *clientSelected;
 }
 @property (nonatomic, strong) UIPopoverController *popoverController;
 @end
@@ -63,7 +65,7 @@
     AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
     context = [appdelegate managedObjectContext];
     
-    
+    self.clientName.delegate = self;
 
 }
 - (void)getUserInformation
@@ -315,9 +317,8 @@
     inv.subTotal = _subTotalLabel.text;
     inv.total = _totalLabel.text;
     inv.vat = _vatLabel.text;
-
+    inv.clientForInvoice = clientSelected;
     [self.navigationController popViewControllerAnimated:YES];
-    
 }
 -(void)fillDataWithInvoiceSelected
 {
@@ -325,22 +326,44 @@
     _projectName.text = _invoiceSelected.projectName;
     _invoiceNumber.text = _invoiceSelected.invoiceNumber;
 }
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    return [textField resignFirstResponder];
-}
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (textField == _clientName) {
+        [self performSegueWithIdentifier: @"client_segue" sender: self];
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
 - (void) clientPickerViewController:(ClientPickerViewController *)sender selectedClient:(id)client
 {
     NSLog(@"INV Client - %@", client);
+    //clientSelected = [[Client alloc]init];
+    //clientSelected = client;
     _clientName.text = client;
+    clientSelected = [self getClientForName:client];
+}
+
+- (Client *) getClientForName:(NSString *)clientName
+{
+    //Get Client Data from CoreData
+    NSEntityDescription *desc = [NSEntityDescription entityForName:@"Client" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    request.predicate = [NSPredicate predicateWithFormat:@"company = %@", clientName];
+    [request setEntity:desc];
     
+    NSError *error;
+    NSArray *data = [context executeFetchRequest:request error:&error];
+    if (data.count !=0) {
+        for (Client *c in data) {
+            NSLog(@"%@", c.company);
+            return c;
+        }
+    }
+    Client *cl = [[Client alloc]init];
+    return cl;
 }
 @end
-
-
-
-
-
-
-

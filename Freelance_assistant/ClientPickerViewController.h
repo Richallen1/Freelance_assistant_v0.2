@@ -14,6 +14,7 @@
 @protocol ClientPickerViewDelegate
 @optional
 - (void) clientPickerViewController:(ClientPickerViewController *)sender selectedClient:(id)client;
+- (void) passClientObjectDelegateMethod:(ClientPickerViewController *)sender clientSelected:(id)client;
 @end
 
 @interface ClientPickerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>

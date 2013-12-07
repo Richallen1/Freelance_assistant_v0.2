@@ -35,6 +35,7 @@
 		9B745C2D18328A15002954A4 /* ClientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C2C18328A15002954A4 /* ClientsTableViewController.m */; };
 		9B745C341833CC1B002954A4 /* ClientDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C331833CC1B002954A4 /* ClientDetailViewController.m */; };
 		9B745C3718381404002954A4 /* invoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C3618381404002954A4 /* invoiceViewController.m */; };
+		9BDF84101850B52000F2B826 /* Invoice+Get_Stored.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDF840F1850B52000F2B826 /* Invoice+Get_Stored.m */; };
 		F44B252F1848A96A0014D97F /* ClientPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F44B252E1848A96A0014D97F /* ClientPickerViewController.m */; };
 		F4E9FDDC18426B0800102544 /* InvoicesOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E9FDDB18426B0800102544 /* InvoicesOverviewViewController.m */; };
 		F4E9FE03184272EB00102544 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E9FE02184272EB00102544 /* Client.m */; };
@@ -94,6 +95,8 @@
 		9B745C331833CC1B002954A4 /* ClientDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientDetailViewController.m; sourceTree = "<group>"; };
 		9B745C3518381404002954A4 /* invoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = invoiceViewController.h; sourceTree = "<group>"; };
 		9B745C3618381404002954A4 /* invoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = invoiceViewController.m; sourceTree = "<group>"; };
+		9BDF840E1850B52000F2B826 /* Invoice+Get_Stored.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Invoice+Get_Stored.h"; sourceTree = "<group>"; };
+		9BDF840F1850B52000F2B826 /* Invoice+Get_Stored.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Invoice+Get_Stored.m"; sourceTree = "<group>"; };
 		F44B252D1848A96A0014D97F /* ClientPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientPickerViewController.h; sourceTree = "<group>"; };
 		F44B252E1848A96A0014D97F /* ClientPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientPickerViewController.m; sourceTree = "<group>"; };
 		F4E9FDDA18426B0800102544 /* InvoicesOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesOverviewViewController.h; sourceTree = "<group>"; };
@@ -190,6 +193,8 @@
 				9B745C331833CC1B002954A4 /* ClientDetailViewController.m */,
 				9B745C3518381404002954A4 /* invoiceViewController.h */,
 				9B745C3618381404002954A4 /* invoiceViewController.m */,
+				9BDF840E1850B52000F2B826 /* Invoice+Get_Stored.h */,
+				9BDF840F1850B52000F2B826 /* Invoice+Get_Stored.m */,
 				9B228DC8183BC0AE008CA80E /* AddChargeTableViewController.h */,
 				9B228DC9183BC0AE008CA80E /* AddChargeTableViewController.m */,
 				F4E9FDDA18426B0800102544 /* InvoicesOverviewViewController.h */,
@@ -401,6 +406,7 @@
 				9B745BE118310D3E002954A4 /* Freelance_assistant.xcdatamodeld in Sources */,
 				9B745C2D18328A15002954A4 /* ClientsTableViewController.m in Sources */,
 				9B745BDA18310D3E002954A4 /* main.m in Sources */,
+				9BDF84101850B52000F2B826 /* Invoice+Get_Stored.m in Sources */,
 				9B745C0C18310D66002954A4 /* SWRevealViewController.m in Sources */,
 				9B382D1F18450C0900C635D7 /* Invoice+Create.m in Sources */,
 				F4E9FDDC18426B0800102544 /* InvoicesOverviewViewController.m in Sources */,

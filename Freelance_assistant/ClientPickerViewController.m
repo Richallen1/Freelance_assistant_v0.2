@@ -72,6 +72,9 @@
     NSString *clientFromPicker = [[NSString alloc]init];
     clientFromPicker = [self.clients objectAtIndex:row];
     [self.delegate clientPickerViewController:self selectedClient:clientFromPicker];
+    
+  //  [self getClientForName:[self.clients objectAtIndex:row]];
+    
 }
 
 @end
