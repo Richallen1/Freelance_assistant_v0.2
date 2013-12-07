@@ -17,6 +17,7 @@
     
     //Get Invoices
     
+    
     NSArray *invoices = [[NSArray alloc]initWithArray:tempInvoiceArray];
     return invoices;
 }

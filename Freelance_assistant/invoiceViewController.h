@@ -30,7 +30,9 @@
 @property (strong, nonatomic) Invoice *invoiceSelected;
 @property (strong, nonatomic) NSMutableDictionary *projectInfo;
 @property (weak, nonatomic) IBOutlet UITextField *dateField;
-
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *completeInvoiceButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sendInvoiceButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 
 - (void) clientPickerViewController:(ClientPickerViewController *)sender selectedClient:(id)client;
 - (void) addChargeViewController:(AddChargeTableViewController *)sender chargeDictionary:(id)dict;
@@ -40,5 +42,9 @@
 - (void)getUserInformation;
 - (IBAction)completeInvoice:(id)sender;
 -(void)fillDataWithInvoiceSelected;
+- (IBAction)sendInvoice:(id)sender;
+- (IBAction)cancelInvoice:(id)sender;
+
+
 
 @end
