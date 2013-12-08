@@ -39,6 +39,9 @@
 		F4093A5F1853947500226F36 /* BUGS TO FIX.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F4093A5E1853947500226F36 /* BUGS TO FIX.rtf */; };
 		F4093AA71853A67800226F36 /* PDFPublisherController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4093AA61853A67800226F36 /* PDFPublisherController.m */; };
 		F4093AAA1853BA9400226F36 /* invoiceViewController+PDFPublisher.m in Sources */ = {isa = PBXBuildFile; fileRef = F4093AA91853BA9400226F36 /* invoiceViewController+PDFPublisher.m */; };
+		F4093AB0185494CA00226F36 /* InvoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4093AAF185494CA00226F36 /* InvoiceView.xib */; };
+		F4093AB31854966100226F36 /* PDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4093AB21854966100226F36 /* PDFViewController.m */; };
+		F4093AB518549BDC00226F36 /* tempLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4093AB418549BDC00226F36 /* tempLogo.jpg */; };
 		F44B252F1848A96A0014D97F /* ClientPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F44B252E1848A96A0014D97F /* ClientPickerViewController.m */; };
 		F4E9FDDC18426B0800102544 /* InvoicesOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E9FDDB18426B0800102544 /* InvoicesOverviewViewController.m */; };
 		F4E9FE03184272EB00102544 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E9FE02184272EB00102544 /* Client.m */; };
@@ -105,6 +108,10 @@
 		F4093AA61853A67800226F36 /* PDFPublisherController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPublisherController.m; sourceTree = "<group>"; };
 		F4093AA81853BA9400226F36 /* invoiceViewController+PDFPublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "invoiceViewController+PDFPublisher.h"; sourceTree = "<group>"; };
 		F4093AA91853BA9400226F36 /* invoiceViewController+PDFPublisher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "invoiceViewController+PDFPublisher.m"; sourceTree = "<group>"; };
+		F4093AAF185494CA00226F36 /* InvoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoiceView.xib; sourceTree = "<group>"; };
+		F4093AB11854966100226F36 /* PDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFViewController.h; sourceTree = "<group>"; };
+		F4093AB21854966100226F36 /* PDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFViewController.m; sourceTree = "<group>"; };
+		F4093AB418549BDC00226F36 /* tempLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tempLogo.jpg; sourceTree = "<group>"; };
 		F44B252D1848A96A0014D97F /* ClientPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientPickerViewController.h; sourceTree = "<group>"; };
 		F44B252E1848A96A0014D97F /* ClientPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientPickerViewController.m; sourceTree = "<group>"; };
 		F4E9FDDA18426B0800102544 /* InvoicesOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesOverviewViewController.h; sourceTree = "<group>"; };
@@ -198,8 +205,8 @@
 				9B745C0E18310E57002954A4 /* AddClientViewController.m */,
 				9B745C2B18328A15002954A4 /* ClientsTableViewController.h */,
 				9B745C2C18328A15002954A4 /* ClientsTableViewController.m */,
-				9B745C321833CC1B002954A4 /* ClientDetailViewController.h */,
 				9B745C331833CC1B002954A4 /* ClientDetailViewController.m */,
+				9B745C321833CC1B002954A4 /* ClientDetailViewController.h */,
 				9B745C3518381404002954A4 /* invoiceViewController.h */,
 				9B745C3618381404002954A4 /* invoiceViewController.m */,
 				F4093AA81853BA9400226F36 /* invoiceViewController+PDFPublisher.h */,
@@ -312,6 +319,10 @@
 			children = (
 				F4093AA51853A67800226F36 /* PDFPublisherController.h */,
 				F4093AA61853A67800226F36 /* PDFPublisherController.m */,
+				F4093AAF185494CA00226F36 /* InvoiceView.xib */,
+				F4093AB11854966100226F36 /* PDFViewController.h */,
+				F4093AB21854966100226F36 /* PDFViewController.m */,
+				F4093AB418549BDC00226F36 /* tempLogo.jpg */,
 			);
 			name = "PDF Publisher";
 			path = ..;
@@ -396,6 +407,8 @@
 				9B745C0918310D66002954A4 /* Main_iPad.storyboard in Resources */,
 				9B745BE318310D3E002954A4 /* Images.xcassets in Resources */,
 				F4093A5F1853947500226F36 /* BUGS TO FIX.rtf in Resources */,
+				F4093AB518549BDC00226F36 /* tempLogo.jpg in Resources */,
+				F4093AB0185494CA00226F36 /* InvoiceView.xib in Resources */,
 				9B745C0818310D66002954A4 /* Main_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +433,7 @@
 				9B745C3718381404002954A4 /* invoiceViewController.m in Sources */,
 				F4093AA71853A67800226F36 /* PDFPublisherController.m in Sources */,
 				9B745C0F18310E57002954A4 /* AddClientViewController.m in Sources */,
+				F4093AB31854966100226F36 /* PDFViewController.m in Sources */,
 				9B745C27183253F3002954A4 /* CoreDataTableViewController.m in Sources */,
 				9B745C0B18310D66002954A4 /* iPadMainViewController.m in Sources */,
 				9B382D261846293200C635D7 /* Invoice.m in Sources */,

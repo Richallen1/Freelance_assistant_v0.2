@@ -772,6 +772,26 @@
             </objects>
             <point key="canvasLocation" x="2296" y="-286"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="5TA-nP-9oa">
+            <objects>
+                <viewController id="f3h-zn-jz7" customClass="PDFViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oXj-K2-amz"/>
+                        <viewControllerLayoutGuide type="bottom" id="x40-Wj-yZZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sFp-80-G1o">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="k7J-N6-FCS"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EzF-km-bzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4002" y="897"/>
+        </scene>
         <!--Invoice View Controller-->
         <scene sceneID="Uq4-kB-DzG">
             <objects>
@@ -937,7 +957,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zZ6-BB-6az">
-                                <rect key="frame" x="0.0" y="93" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="94" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem title="Save" id="uH0-5C-6d1">
@@ -945,29 +965,17 @@
                                             <action selector="completeInvoice:" destination="qc0-Sp-w4a" id="UTx-Hq-UVe"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Send" id="ItK-EG-T8j">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KZQ-Jp-ir4">
-                                            <rect key="frame" x="65" y="2" width="73" height="41"/>
+                                    <barButtonItem style="plain" id="N02-or-Qrg">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pMI-ix-bxU">
+                                            <rect key="frame" x="65" y="6" width="107" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Send">
+                                            <state key="normal" title="Preview Invoice">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="sendInvoice:" destination="qc0-Sp-w4a" eventType="touchUpInside" id="0j1-IU-Em9"/>
+                                                <segue destination="f3h-zn-jz7" kind="push" identifier="Preview Segue" id="618-Qr-u5h"/>
                                             </connections>
                                         </button>
-                                    </barButtonItem>
-                                    <barButtonItem title="Send" style="plain" id="WwF-7h-s50">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zJz-IC-g4J">
-                                            <rect key="frame" x="148" y="6" width="73" height="33"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Cancel">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                        <connections>
-                                            <action selector="cancelInvoice:" destination="qc0-Sp-w4a" id="FNP-rY-1H3"/>
-                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -979,14 +987,12 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="cancelButton" destination="WwF-7h-s50" id="YKL-hE-zso"/>
                         <outlet property="clientName" destination="yyx-yc-B23" id="6nP-Gg-ILN"/>
                         <outlet property="completeInvoiceButton" destination="uH0-5C-6d1" id="Twf-cT-6jC"/>
                         <outlet property="dateField" destination="W8n-tr-DBP" id="ieP-NS-cpA"/>
                         <outlet property="editButton" destination="tjk-q1-Von" id="k1I-fp-A2g"/>
                         <outlet property="invoiceNumber" destination="75P-cm-NqZ" id="TFW-hT-xrF"/>
                         <outlet property="projectName" destination="EcP-wd-kVl" id="bqc-rV-NBa"/>
-                        <outlet property="sendInvoice" destination="ItK-EG-T8j" id="dfE-ux-4Rf"/>
                         <outlet property="subTotalLabel" destination="zDz-5f-6t8" id="WCg-TY-J0F"/>
                         <outlet property="tblView" destination="xS9-3F-m9F" id="zLn-br-wZT"/>
                         <outlet property="totalLabel" destination="xB4-fh-diU" id="xKG-PT-Q6D"/>

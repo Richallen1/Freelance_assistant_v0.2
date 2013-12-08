@@ -42,8 +42,7 @@
 - (void)getUserInformation;
 - (IBAction)completeInvoice:(id)sender;
 -(void)fillDataWithInvoiceSelected;
-- (IBAction)sendInvoice:(id)sender;
-- (IBAction)cancelInvoice:(id)sender;
+
 
 
 

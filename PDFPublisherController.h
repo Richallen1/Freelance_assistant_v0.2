@@ -6,12 +6,44 @@
 //  Copyright (c) 2013 Richard Allen. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "Invoice.h"
-#import "Invoice_charges.h"
+#import <Foundation/Foundation.h>
+
+static NSArray *invoiceRowData;
+static  NSDictionary *invoiceClientData;
 
 @interface PDFPublisherController : NSObject
 
-- (BOOL)publishPdfWithInvoice:(Invoice *)data;
++(BOOL)PublishPDFWithData:(NSArray *)invoiceRows withClientDetails:(NSDictionary *)invDetails;
+
++(void)drawPDF:(NSString*)fileName;
+
++(void)drawText;
+
++(void)drawLineFromPoint:(CGPoint)from toPoint:(CGPoint)to;
+
++(void)drawImage:(UIImage*)image inRect:(CGRect)rect;
+
++(void)drawText:(NSString*)textToDraw inFrame:(CGRect)frameRect;
+
++(void)drawLabels;
+
++(void)drawLogo;
+
+
++(void)drawTableAt:(CGPoint)origin
+     withRowHeight:(int)rowHeight
+    andColumnWidth:(int)columnWidth
+       andRowCount:(int)numberOfRows
+    andColumnCount:(int)numberOfColumns;
+
+
++(void)drawTableDataAt:(CGPoint)origin
+         withRowHeight:(int)rowHeight
+        andColumnWidth:(int)columnWidth
+           andRowCount:(int)numberOfRows
+        andColumnCount:(int)numberOfColumns;
+
+
+
 
 @end

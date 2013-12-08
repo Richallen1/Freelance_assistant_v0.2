@@ -11,6 +11,7 @@
 #import "Client.h"
 #import "Invoice_charges.h"
 #import "invoiceViewController+PDFPublisher.h"
+#import "PDFPublisherController.h"
 
 @interface invoiceViewController ()<AddChargeTableViewDelegate, ClientPickerViewDelegate>
 {
@@ -143,6 +144,12 @@
             self.popoverController = popoverSegue.popoverController;
         }
             [segue.destinationViewController setDelegate:self];
+    }
+    if ([segue.identifier isEqualToString:@"Preview Segue"]) {
+        NSLog(@"Preview Segue");
+        NSDictionary *dict = [[NSDictionary alloc]init];
+        BOOL sucess = [PDFPublisherController PublishPDFWithData:_invoiceRows withClientDetails:dict];
+        
     }
     if ([segue.identifier isEqualToString:@"client_segue"]) {
         if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]]) {
@@ -296,10 +303,6 @@
     [tblView reloadData];
 }
 
-- (IBAction)sendInvoice:(id)sender
-{
-    
-}
 
 - (IBAction)cancelInvoice:(id)sender
 {
