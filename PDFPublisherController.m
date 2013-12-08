@@ -251,7 +251,7 @@
     andColumnCount:(int)numberOfColumns
 
 {
-    
+
     for (int i = 0; i <= numberOfRows; i++) {
         
         int newOrigin = origin.y + (rowHeight*i);
@@ -260,23 +260,48 @@
         CGPoint from = CGPointMake(origin.x, newOrigin);
         CGPoint to = CGPointMake(origin.x + (numberOfColumns*columnWidth), newOrigin);
         
-        [self drawLineFromPoint:from toPoint:to];
-        
-        
-    }
     
-    for (int i = 0; i <= numberOfColumns; i++) {
-        
-        int newOrigin = origin.x + (columnWidth*i);
-        
-        
-        CGPoint from = CGPointMake(newOrigin, origin.y);
-        CGPoint to = CGPointMake(newOrigin, origin.y +(numberOfRows*rowHeight));
         
         [self drawLineFromPoint:from toPoint:to];
         
         
     }
+    //Draw Columns
+    
+    //Start Col Line
+    CGPoint from = CGPointMake(origin.x, origin.y);
+    CGPoint to = CGPointMake(origin.x, origin.y +(numberOfRows*rowHeight));
+    [self drawLineFromPoint:from toPoint:to];
+    
+    //End Qty Line
+    CGPoint newXVar = CGPointMake(origin.x+40, origin.y);
+    CGPoint from2 = CGPointMake(newXVar.x, origin.y);
+    CGPoint to2 = CGPointMake(newXVar.x, origin.y +(numberOfRows*rowHeight));
+    [self drawLineFromPoint:from2 toPoint:to2];
+    
+    //End Desc Line
+    CGPoint newXVar2 = CGPointMake(newXVar.x+180, origin.y);
+    CGPoint from3 = CGPointMake(newXVar2.x, origin.y);
+    CGPoint to3 = CGPointMake(newXVar2.x, origin.y +(numberOfRows*rowHeight));
+    [self drawLineFromPoint:from3 toPoint:to3];
+    
+    //End Price Line
+    CGPoint newXVar3 = CGPointMake(newXVar2.x+80, origin.y);
+    CGPoint from4 = CGPointMake(newXVar3.x, origin.y);
+    CGPoint to4 = CGPointMake(newXVar3.x, origin.y +(numberOfRows*rowHeight));
+    [self drawLineFromPoint:from4 toPoint:to4];
+    
+    //End VAT Line
+    CGPoint newXVar4 = CGPointMake(newXVar3.x+80, origin.y);
+    CGPoint from5 = CGPointMake(newXVar4.x, origin.y);
+    CGPoint to5 = CGPointMake(newXVar4.x, origin.y +(numberOfRows*rowHeight));
+    [self drawLineFromPoint:from5 toPoint:to5];
+    
+    //End TOTAL Line
+    CGPoint from6 = CGPointMake((numberOfColumns*columnWidth)+51, origin.y);
+    CGPoint to6 = CGPointMake((numberOfColumns*columnWidth)+51, origin.y +(numberOfRows*rowHeight));
+    [self drawLineFromPoint:from6 toPoint:to6];
+    
 }
 
 +(void)drawTableDataAt:(CGPoint)origin
@@ -285,33 +310,36 @@
            andRowCount:(int)numberOfRows
         andColumnCount:(int)numberOfColumns
 {
-    int padding = 10;
+//    int padding = 10;
+//    
+//    NSArray* headers = [NSArray arrayWithObjects:@"Quantity", @"Description", @"Unit price", @"Total", nil];
+//    NSArray* invoiceInfo1 = [NSArray arrayWithObjects:@"1", @"Development", @"$1000", @"$1000", nil];
+//    NSArray* invoiceInfo2 = [NSArray arrayWithObjects:@"1", @"Development", @"$1000", @"$1000", nil];
+//    NSArray* invoiceInfo3 = [NSArray arrayWithObjects:@"1", @"Development", @"$1000", @"$1000", nil];
+//    NSArray* invoiceInfo4 = [NSArray arrayWithObjects:@"1", @"Development", @"$1000", @"$1000", nil];
+//    
+//    NSArray* allInfo = [NSArray arrayWithObjects:headers, invoiceInfo1, invoiceInfo2, invoiceInfo3, invoiceInfo4, nil];
+//    
+//    for(int i = 0; i < [allInfo count]; i++)
+//    {
+//        NSArray* infoToDraw = [allInfo objectAtIndex:i];
+//        
+//        for (int j = 0; j < numberOfColumns; j++)
+//        {
+//            
+//            int newOriginX = origin.x + (j*columnWidth);
+//            int newOriginY = origin.y + ((i+1)*rowHeight);
+//            
+//            CGRect frame = CGRectMake(newOriginX + padding, newOriginY + padding, columnWidth, rowHeight);
+//            
+//            
+//            [self drawText:[infoToDraw objectAtIndex:j] inFrame:frame];
+//        }
+//        
+//    }
     
-    NSArray* headers = [NSArray arrayWithObjects:@"Quantity", @"Description", @"Unit price", @"Total", nil];
-    NSArray* invoiceInfo1 = [NSArray arrayWithObjects:@"1", @"Development", @"$1000", @"$1000", nil];
-    NSArray* invoiceInfo2 = [NSArray arrayWithObjects:@"1", @"Development", @"$1000", @"$1000", nil];
-    NSArray* invoiceInfo3 = [NSArray arrayWithObjects:@"1", @"Development", @"$1000", @"$1000", nil];
-    NSArray* invoiceInfo4 = [NSArray arrayWithObjects:@"1", @"Development", @"$1000", @"$1000", nil];
     
-    NSArray* allInfo = [NSArray arrayWithObjects:headers, invoiceInfo1, invoiceInfo2, invoiceInfo3, invoiceInfo4, nil];
     
-    for(int i = 0; i < [allInfo count]; i++)
-    {
-        NSArray* infoToDraw = [allInfo objectAtIndex:i];
-        
-        for (int j = 0; j < numberOfColumns; j++)
-        {
-            
-            int newOriginX = origin.x + (j*columnWidth);
-            int newOriginY = origin.y + ((i+1)*rowHeight);
-            
-            CGRect frame = CGRectMake(newOriginX + padding, newOriginY + padding, columnWidth, rowHeight);
-            
-            
-            [self drawText:[infoToDraw objectAtIndex:j] inFrame:frame];
-        }
-        
-    }
     
 }
 

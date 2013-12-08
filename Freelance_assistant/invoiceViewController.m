@@ -149,7 +149,13 @@
         NSLog(@"Preview Segue");
         NSDictionary *dict = [[NSDictionary alloc]init];
         BOOL sucess = [PDFPublisherController PublishPDFWithData:_invoiceRows withClientDetails:dict];
-        
+        if (sucess ==TRUE) {
+            NSLog(@"PDF Generated Sucessfully");
+        }
+        else
+        {
+            NSLog(@"Error with PDF Generation");
+        }
     }
     if ([segue.identifier isEqualToString:@"client_segue"]) {
         if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]]) {
