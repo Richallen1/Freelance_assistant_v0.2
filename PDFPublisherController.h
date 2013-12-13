@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Client.h"
 
 static NSArray *invoiceRowData;
 static  NSDictionary *invoiceClientData;
 
 @interface PDFPublisherController : NSObject
 
-+(BOOL)PublishPDFWithData:(NSArray *)invoiceRows withClientDetails:(NSDictionary *)invDetails;
++(NSString *)PublishPDFWithData:(NSArray *)invoiceRows withClientDetails:(NSDictionary *)invDetails forClient:(Client *)clientSelected;
 
 +(void)drawPDF:(NSString*)fileName;
-
-+(void)drawText;
 
 +(void)drawLineFromPoint:(CGPoint)from toPoint:(CGPoint)to;
 
@@ -25,25 +24,19 @@ static  NSDictionary *invoiceClientData;
 
 +(void)drawText:(NSString*)textToDraw inFrame:(CGRect)frameRect;
 
-+(void)drawLabels;
++(void)drawLabelsWithInvoiceDetails:(NSDictionary *)dict andSelectedClient:(Client *)clientSelected;
 
 +(void)drawLogo;
 
++(CGPoint)createRowAt:(CGPoint)origin
+                data1:(NSString *)col1
+                data2:(NSString *)col2
+                data3:(NSString *)col3
+                data4:(NSString *)col4
+                data5:(NSString *)col5;
 
-+(void)drawTableAt:(CGPoint)origin
-     withRowHeight:(int)rowHeight
-    andColumnWidth:(int)columnWidth
-       andRowCount:(int)numberOfRows
-    andColumnCount:(int)numberOfColumns;
-
-
-+(void)drawTableDataAt:(CGPoint)origin
-         withRowHeight:(int)rowHeight
-        andColumnWidth:(int)columnWidth
-           andRowCount:(int)numberOfRows
-        andColumnCount:(int)numberOfColumns;
-
-
++(NSString*)getPDFFileName;
++(NSString*)getPDFFileNameWithProjInfo:(NSString *)file;
 
 
 @end

@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "Client.h"
 #import "Invoice_charges.h"
-#import "invoiceViewController+PDFPublisher.h"
+#import "PDFViewController.h"
 #import "PDFPublisherController.h"
 
 @interface invoiceViewController ()<AddChargeTableViewDelegate, ClientPickerViewDelegate>
@@ -47,8 +47,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
     
     //Get Date Info
     NSDate *now = [[NSDate alloc] init];
@@ -123,7 +121,6 @@
         [self removeRowAndUpdateForRow:indexPath];
     }
 }
-
 -(void)removeRowAndUpdateForRow:(NSIndexPath *)indexPath
 {
     //Method Instance Vars
@@ -133,8 +130,17 @@
     [tblView reloadData];
     [self updateLabels];
 }
-
-
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Preview Segue"]) {
+        BOOL check = checkRequiredFields;
+        if (check == true) {
+            return true;
+        
+        }
+        return false;
+}
+}
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"charge_detail_segue"]) {
@@ -147,15 +153,23 @@
     }
     if ([segue.identifier isEqualToString:@"Preview Segue"]) {
         NSLog(@"Preview Segue");
-        NSDictionary *dict = [[NSDictionary alloc]init];
-        BOOL sucess = [PDFPublisherController PublishPDFWithData:_invoiceRows withClientDetails:dict];
-        if (sucess ==TRUE) {
-            NSLog(@"PDF Generated Sucessfully");
-        }
-        else
-        {
-            NSLog(@"Error with PDF Generation");
-        }
+        NSMutableDictionary *mutableDict = [[NSMutableDictionary alloc]init];
+        
+        [mutableDict setObject:clientSelected.company forKey:@"name"];
+        
+        //Proj Details
+        [mutableDict setValue:_projectName.text forKey:@"projectName"];
+        [mutableDict setValue:_invoiceNumber.text forKey:@"invoiceNumber"];
+        [mutableDict setValue:_dateField.text forKey:@"invoiceDate"];
+
+        NSDictionary *dict = [[NSDictionary alloc]initWithDictionary:mutableDict];
+        
+            NSString *fileCreated = [PDFPublisherController PublishPDFWithData:_invoiceRows withClientDetails:dict forClient:clientSelected];
+            PDFViewController *pvc = segue.destinationViewController;
+            pvc.fileName = fileCreated;
+        
+        
+        
     }
     if ([segue.identifier isEqualToString:@"client_segue"]) {
         if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]]) {
@@ -165,6 +179,27 @@
         }
         [segue.destinationViewController setDelegate:self];
     }
+}
+-(BOOL)checkRequiredFields
+{
+
+    if (clientSelected ==nil) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Opps!! I think you missed something!" message:@"You missed out the client to invoice. You need to enter one before going on." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        return false;
+    }
+    if ([_projectName.text  isEqual: @""]) {
+        UIAlertView *alert2 = [[UIAlertView alloc]initWithTitle:@"Opps!! I think you missed something!" message:@"You missed out the project name. You need to enter one before going on." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert2 show];
+        return false;
+    }
+    if ([_invoiceNumber.text  isEqual: @""]) {
+        UIAlertView *alert3 = [[UIAlertView alloc]initWithTitle:@"Opps!! I think you missed something!" message:@"You missed out the project name. You need to enter one before going on." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert3 show];
+        return false;
+    }
+
+    return true;
 }
 -(void) addChargeViewController:(AddChargeTableViewController *)sender chargeDictionary:(id)dict
 {
@@ -178,8 +213,6 @@
     
     [self updateLabels];
  }
-
-
 -(void)updateLabels
 {
     float subTotal;
@@ -211,9 +244,6 @@
     
     NSString *totalLabelString = [NSString stringWithFormat:@"%0.2f", total_UpdateLabel];
     _totalLabel.text = totalLabelString;
-    
-    
-
 }
 - (IBAction)editInvoice:(id)sender
 {
@@ -235,7 +265,6 @@
 #pragma mark - Core Data Methods
 - (IBAction)completeInvoice:(id)sender
 {
-    
         Invoice *inv = nil;
         inv  = [NSEntityDescription insertNewObjectForEntityForName:@"Invoice" inManagedObjectContext:context];
         inv.date = _dateField.text;
@@ -245,24 +274,20 @@
         inv.total = _totalLabel.text;
         inv.vat = _vatLabel.text;
         inv.clientForInvoice = clientSelected;
-    
         for (NSMutableDictionary *dict in _invoiceRows)
         {
             [self InvoiceWithDict:dict invoiceForCharges:inv];
         }
-    
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void) InvoiceWithDict:(NSMutableDictionary *)dict invoiceForCharges:(Invoice *)inv
 {
     Invoice_charges *invCharge = nil;
     invCharge = [NSEntityDescription insertNewObjectForEntityForName:@"Invoice_charges" inManagedObjectContext:context];
-    
     NSString *priceStr = [NSString stringWithFormat:@"%@",[dict objectForKey:@"Price"]];
     NSString *totalStr = [NSString stringWithFormat:@"%@",[dict objectForKey:@"Total"]];
     NSString *vatStr = [NSString stringWithFormat:@"%@",[dict objectForKey:@"VAT"]];
     NSString *qtyStr = [NSString stringWithFormat:@"%@",[dict objectForKey:@"Qty"]];
-    
     invCharge.date = [dict objectForKey:@"Date"];
     invCharge.price  = priceStr;
     invCharge.desc = [dict objectForKey:@"Desc"];

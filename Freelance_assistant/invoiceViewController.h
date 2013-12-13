@@ -42,7 +42,7 @@
 - (void)getUserInformation;
 - (IBAction)completeInvoice:(id)sender;
 -(void)fillDataWithInvoiceSelected;
-
+-(BOOL)checkRequiredFields;
 
 
 

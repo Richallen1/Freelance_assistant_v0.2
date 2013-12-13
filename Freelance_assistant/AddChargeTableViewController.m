@@ -89,11 +89,15 @@
 - (IBAction)doneButton:(id)sender
 {
     NSMutableDictionary *dict =[[NSMutableDictionary alloc]init];
-    
-    NSNumber *NSVat = [[NSNumber alloc]initWithFloat:vatAmount];
-    NSNumber *NSTotal = [[NSNumber alloc]initWithFloat:total];
+
     float subTotal = total - vatAmount;
-    NSNumber *NSsubTotal = [[NSNumber alloc]initWithFloat:subTotal];
+    
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
+    NSString *subTotalAsString = [numberFormatter stringFromNumber:[NSNumber numberWithFloat:subTotal]];
+    NSString *vatAsString = [numberFormatter stringFromNumber:[NSNumber numberWithFloat:vatAmount]];
+    NSString *totalAsString = [numberFormatter stringFromNumber:[NSNumber numberWithFloat:total]];
+    
     
     
     if ([_dateField.text  isEqual: @""]) {
@@ -123,9 +127,9 @@
         [dict setObject:_chargeDescField.text forKey:@"Desc"];
         [dict setObject:_priceField.text forKey:@"Price"];
         [dict setObject:_qtyField.text forKey:@"Qty"];
-        [dict setObject:NSTotal forKey:@"Total"];
-        [dict setObject:NSVat forKey:@"VAT"];
-        [dict setObject:NSsubTotal forKey:@"subTotal"];
+        [dict setObject:totalAsString forKey:@"Total"];
+        [dict setObject:vatAsString forKey:@"VAT"];
+        [dict setObject:subTotalAsString forKey:@"subTotal"];
         [self.delegate addChargeViewController:self chargeDictionary:dict];
     }
 }

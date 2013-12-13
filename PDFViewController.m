@@ -9,53 +9,39 @@
 #import "PDFViewController.h"
 #import "CoreText/CoreText.h"
 #import "PDFPublisherController.h"
+#import "SendInvoiceViewController.h"
+
 
 @implementation PDFViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize fileName;
 
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
-{ 
-    NSString* fileName = [self getPDFFileName];
+{
+    
+    CGRect rect = CGRectMake(0, -60, 300, 300);
+    self.view.bounds = rect;
+    
+    
+    NSLog(@"%@", fileName);
+    [self showPDFFileWithFile:fileName];
 
-    [PDFPublisherController drawPDF:fileName];
+    [super viewDidLoad];
     
-    [self showPDFFile];
     
-    [super viewDidLoad];     
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -64,10 +50,10 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(void)showPDFFile
+-(void)showPDFFileWithFile:(NSString *)file
 {
-    NSString* pdfFileName = [self getPDFFileName];
-   
+    NSString* pdfFileName = file;
+    
     UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 768, 1024)];
     
     NSURL *url = [NSURL fileURLWithPath:pdfFileName];
@@ -76,22 +62,15 @@
     [webView loadRequest:request];
     
     [self.view addSubview:webView];
-}
-
--(NSString*)getPDFFileName
-{
-    NSString* fileName = @"Invoice.PDF";
     
-    NSArray *arrayPaths = 
-    NSSearchPathForDirectoriesInDomains(
-                                        NSDocumentDirectory,
-                                        NSUserDomainMask,
-                                        YES);
-    NSString *path = [arrayPaths objectAtIndex:0];
-    NSString* pdfFileName = [path stringByAppendingPathComponent:fileName];
-    
-    return pdfFileName;
-
 }
+//
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([segue.identifier isEqualToString:@"Send Invoice Segue"]) {
+//        [segue.destinationViewController initVariblesWithFileName:fileName andClient:];
+//    }
+//
+//}
 
 @end

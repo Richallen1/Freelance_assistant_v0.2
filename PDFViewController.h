@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Client.h"
 
 @interface PDFViewController : UIViewController
 
-
+@property (nonatomic, strong) Client *client;
+@property (nonatomic, strong) NSString *fileName;
 -(void)showPDFFile;
+-(void)showPDFFileWithFile:(NSString *)file;
 
--(NSString*)getPDFFileName;
 @end
