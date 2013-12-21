@@ -33,7 +33,7 @@
     UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, 612, 792), nil);
     
     [self drawLabelsWithInvoiceDetails:invDetails andSelectedClient:clientSelected];
-    [self drawLogo];
+    //[self drawLogo];
     
     int xOrigin = 50;
     int yOrigin = 300;
@@ -339,7 +339,7 @@
     CGPoint to3 = CGPointMake(newXVar2.x, origin.y + coloumnHeight);
     [self drawLineFromPoint:from3 toPoint:to3];
     
-    CGRect frame3 = CGRectMake(from3.x, from3.y, 40, -30);
+    CGRect frame3 = CGRectMake(from3.x, from3.y, 100, -30);
     [self drawText:col3 inFrame:frame3];
     
     //End Price Line

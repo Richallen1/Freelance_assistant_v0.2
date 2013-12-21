@@ -32,7 +32,7 @@
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
     
-    _menuItems = @[@"title", @"dashboard", @"invoices", @"clients", @"settings"];
+    _menuItems = @[@"title", @"dashboard", @"invoices", @"clients", @"settings", @"help"];
 }
 
 - (void)didReceiveMemoryWarning

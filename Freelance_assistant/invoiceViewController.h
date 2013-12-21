@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *userAddress1;
 @property (weak, nonatomic) IBOutlet UILabel *userAddress2;
 
+
 @property (weak, nonatomic) IBOutlet UITextField *clientName;
 @property (weak, nonatomic) IBOutlet UITextField *projectName;
 @property (weak, nonatomic) IBOutlet UITextField *invoiceNumber;
@@ -40,10 +41,9 @@
 - (IBAction)editInvoice:(id)sender;
 - (void)updateLabels;
 - (void)getUserInformation;
-- (IBAction)completeInvoice:(id)sender;
--(void)fillDataWithInvoiceSelected;
--(BOOL)checkRequiredFields;
+- (void)fillDataWithInvoiceSelected;
+- (void)deleteInvoiceWithNumber:(NSString *)invNumber;
+- (void)saveInvoice;
 
-
-
+-(Invoice_charges *) InvoiceWithDict:(NSMutableDictionary *)dict invoiceForCharges:(Invoice *)inv;
 @end

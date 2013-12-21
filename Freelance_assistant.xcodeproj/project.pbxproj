@@ -35,9 +35,14 @@
 		9B745C2D18328A15002954A4 /* ClientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C2C18328A15002954A4 /* ClientsTableViewController.m */; };
 		9B745C341833CC1B002954A4 /* ClientDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C331833CC1B002954A4 /* ClientDetailViewController.m */; };
 		9B745C3718381404002954A4 /* invoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C3618381404002954A4 /* invoiceViewController.m */; };
-		9BDF84101850B52000F2B826 /* Invoice+Get_Stored.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDF840F1850B52000F2B826 /* Invoice+Get_Stored.m */; };
-		9BDF8459185A666B00F2B826 /* SendInvoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDF8458185A666B00F2B826 /* SendInvoiceViewController.m */; };
-		9BDF845D185A66DE00F2B826 /* Postmaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDF845C185A66DE00F2B826 /* Postmaster.m */; };
+		9B95F3111860C7C7007318DC /* InvoiceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95F3101860C7C7007318DC /* InvoiceInfoViewController.m */; };
+		9B95F31418650A01007318DC /* Invoice+StoreNewInvoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95F31318650A01007318DC /* Invoice+StoreNewInvoice.m */; };
+		9BDF84A3185CB9D800F2B826 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDF84A2185CB9D800F2B826 /* SettingsViewController.m */; };
+		9BDF84AA185CD7D300F2B826 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDF84A9185CD7D300F2B826 /* UserInfoViewController.m */; };
+		9BDF84B3185CDB5600F2B826 /* AddressInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDF84B2185CDB5600F2B826 /* AddressInfoViewController.m */; };
+		9BDF84B6185CDB6F00F2B826 /* EmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDF84B5185CDB6F00F2B826 /* EmailViewController.m */; };
+		9BDF84BC185CF07400F2B826 /* PaymentTermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDF84BB185CF07400F2B826 /* PaymentTermsViewController.m */; };
+		9BDF84BF185CF08F00F2B826 /* BankDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDF84BE185CF08F00F2B826 /* BankDetailsViewController.m */; };
 		F4093A5F1853947500226F36 /* BUGS TO FIX.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F4093A5E1853947500226F36 /* BUGS TO FIX.rtf */; };
 		F4093AA71853A67800226F36 /* PDFPublisherController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4093AA61853A67800226F36 /* PDFPublisherController.m */; };
 		F4093AB0185494CA00226F36 /* InvoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4093AAF185494CA00226F36 /* InvoiceView.xib */; };
@@ -102,12 +107,22 @@
 		9B745C331833CC1B002954A4 /* ClientDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientDetailViewController.m; sourceTree = "<group>"; };
 		9B745C3518381404002954A4 /* invoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = invoiceViewController.h; sourceTree = "<group>"; };
 		9B745C3618381404002954A4 /* invoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = invoiceViewController.m; sourceTree = "<group>"; };
-		9BDF840E1850B52000F2B826 /* Invoice+Get_Stored.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Invoice+Get_Stored.h"; sourceTree = "<group>"; };
-		9BDF840F1850B52000F2B826 /* Invoice+Get_Stored.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Invoice+Get_Stored.m"; sourceTree = "<group>"; };
-		9BDF8457185A666B00F2B826 /* SendInvoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendInvoiceViewController.h; sourceTree = "<group>"; };
-		9BDF8458185A666B00F2B826 /* SendInvoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendInvoiceViewController.m; sourceTree = "<group>"; };
-		9BDF845B185A66DE00F2B826 /* Postmaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Postmaster.h; sourceTree = "<group>"; };
-		9BDF845C185A66DE00F2B826 /* Postmaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Postmaster.m; sourceTree = "<group>"; };
+		9B95F30F1860C7C7007318DC /* InvoiceInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoiceInfoViewController.h; sourceTree = "<group>"; };
+		9B95F3101860C7C7007318DC /* InvoiceInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoiceInfoViewController.m; sourceTree = "<group>"; };
+		9B95F31218650A01007318DC /* Invoice+StoreNewInvoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Invoice+StoreNewInvoice.h"; sourceTree = "<group>"; };
+		9B95F31318650A01007318DC /* Invoice+StoreNewInvoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Invoice+StoreNewInvoice.m"; sourceTree = "<group>"; };
+		9BDF84A1185CB9D800F2B826 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		9BDF84A2185CB9D800F2B826 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		9BDF84A8185CD7D300F2B826 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoViewController.h; path = ../UserInfoViewController.h; sourceTree = "<group>"; };
+		9BDF84A9185CD7D300F2B826 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoViewController.m; path = ../UserInfoViewController.m; sourceTree = "<group>"; };
+		9BDF84B1185CDB5600F2B826 /* AddressInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressInfoViewController.h; sourceTree = "<group>"; };
+		9BDF84B2185CDB5600F2B826 /* AddressInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressInfoViewController.m; sourceTree = "<group>"; };
+		9BDF84B4185CDB6F00F2B826 /* EmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailViewController.h; sourceTree = "<group>"; };
+		9BDF84B5185CDB6F00F2B826 /* EmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailViewController.m; sourceTree = "<group>"; };
+		9BDF84BA185CF07400F2B826 /* PaymentTermsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentTermsViewController.h; sourceTree = "<group>"; };
+		9BDF84BB185CF07400F2B826 /* PaymentTermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentTermsViewController.m; sourceTree = "<group>"; };
+		9BDF84BD185CF08F00F2B826 /* BankDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankDetailsViewController.h; sourceTree = "<group>"; };
+		9BDF84BE185CF08F00F2B826 /* BankDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankDetailsViewController.m; sourceTree = "<group>"; };
 		F4093A5E1853947500226F36 /* BUGS TO FIX.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "BUGS TO FIX.rtf"; sourceTree = "<group>"; };
 		F4093AA51853A67800226F36 /* PDFPublisherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPublisherController.h; sourceTree = "<group>"; };
 		F4093AA61853A67800226F36 /* PDFPublisherController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPublisherController.m; sourceTree = "<group>"; };
@@ -208,19 +223,19 @@
 				9B745C0E18310E57002954A4 /* AddClientViewController.m */,
 				9B745C2B18328A15002954A4 /* ClientsTableViewController.h */,
 				9B745C2C18328A15002954A4 /* ClientsTableViewController.m */,
-				9B745C331833CC1B002954A4 /* ClientDetailViewController.m */,
 				9B745C321833CC1B002954A4 /* ClientDetailViewController.h */,
+				9B745C331833CC1B002954A4 /* ClientDetailViewController.m */,
 				9B745C3518381404002954A4 /* invoiceViewController.h */,
 				9B745C3618381404002954A4 /* invoiceViewController.m */,
-				9BDF840E1850B52000F2B826 /* Invoice+Get_Stored.h */,
-				9BDF840F1850B52000F2B826 /* Invoice+Get_Stored.m */,
 				9B228DC8183BC0AE008CA80E /* AddChargeTableViewController.h */,
 				9B228DC9183BC0AE008CA80E /* AddChargeTableViewController.m */,
 				F4E9FDDA18426B0800102544 /* InvoicesOverviewViewController.h */,
 				F4E9FDDB18426B0800102544 /* InvoicesOverviewViewController.m */,
 				F44B252D1848A96A0014D97F /* ClientPickerViewController.h */,
 				F44B252E1848A96A0014D97F /* ClientPickerViewController.m */,
-				9BDF845A185A669F00F2B826 /* Mail Room */,
+				9B95F30F1860C7C7007318DC /* InvoiceInfoViewController.h */,
+				9B95F3101860C7C7007318DC /* InvoiceInfoViewController.m */,
+				9BDF84A4185CBE4B00F2B826 /* Settings VC's */,
 				F4093AA41853A65700226F36 /* PDF Publisher */,
 				9B382D2018450C1200C635D7 /* Categories */,
 				9B745C1218310E7C002954A4 /* Libraries */,
@@ -263,6 +278,8 @@
 			isa = PBXGroup;
 			children = (
 				9B745C0118310D66002954A4 /* Main_iPad.storyboard */,
+				9B95F31218650A01007318DC /* Invoice+StoreNewInvoice.h */,
+				9B95F31318650A01007318DC /* Invoice+StoreNewInvoice.m */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -316,15 +333,23 @@
 			name = "Core Data";
 			sourceTree = "<group>";
 		};
-		9BDF845A185A669F00F2B826 /* Mail Room */ = {
+		9BDF84A4185CBE4B00F2B826 /* Settings VC's */ = {
 			isa = PBXGroup;
 			children = (
-				9BDF8457185A666B00F2B826 /* SendInvoiceViewController.h */,
-				9BDF8458185A666B00F2B826 /* SendInvoiceViewController.m */,
-				9BDF845B185A66DE00F2B826 /* Postmaster.h */,
-				9BDF845C185A66DE00F2B826 /* Postmaster.m */,
+				9BDF84A1185CB9D800F2B826 /* SettingsViewController.h */,
+				9BDF84A2185CB9D800F2B826 /* SettingsViewController.m */,
+				9BDF84A8185CD7D300F2B826 /* UserInfoViewController.h */,
+				9BDF84A9185CD7D300F2B826 /* UserInfoViewController.m */,
+				9BDF84B1185CDB5600F2B826 /* AddressInfoViewController.h */,
+				9BDF84B2185CDB5600F2B826 /* AddressInfoViewController.m */,
+				9BDF84B4185CDB6F00F2B826 /* EmailViewController.h */,
+				9BDF84B5185CDB6F00F2B826 /* EmailViewController.m */,
+				9BDF84BA185CF07400F2B826 /* PaymentTermsViewController.h */,
+				9BDF84BB185CF07400F2B826 /* PaymentTermsViewController.m */,
+				9BDF84BD185CF08F00F2B826 /* BankDetailsViewController.h */,
+				9BDF84BE185CF08F00F2B826 /* BankDetailsViewController.m */,
 			);
-			name = "Mail Room";
+			name = "Settings VC's";
 			sourceTree = "<group>";
 		};
 		F4093AA41853A65700226F36 /* PDF Publisher */ = {
@@ -441,27 +466,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BDF84B6185CDB6F00F2B826 /* EmailViewController.m in Sources */,
 				9B745BDE18310D3E002954A4 /* AppDelegate.m in Sources */,
 				F4E9FE0C1842734E00102544 /* Invoice_charges.m in Sources */,
-				9BDF8459185A666B00F2B826 /* SendInvoiceViewController.m in Sources */,
 				9B745C3718381404002954A4 /* invoiceViewController.m in Sources */,
 				F4093AA71853A67800226F36 /* PDFPublisherController.m in Sources */,
+				9BDF84BC185CF07400F2B826 /* PaymentTermsViewController.m in Sources */,
 				9B745C0F18310E57002954A4 /* AddClientViewController.m in Sources */,
 				F4093AB31854966100226F36 /* PDFViewController.m in Sources */,
 				9B745C27183253F3002954A4 /* CoreDataTableViewController.m in Sources */,
 				9B745C0B18310D66002954A4 /* iPadMainViewController.m in Sources */,
+				9BDF84BF185CF08F00F2B826 /* BankDetailsViewController.m in Sources */,
 				9B382D261846293200C635D7 /* Invoice.m in Sources */,
 				9B745C341833CC1B002954A4 /* ClientDetailViewController.m in Sources */,
 				9B745C0A18310D66002954A4 /* iPadSideBarViewController.m in Sources */,
+				9B95F3111860C7C7007318DC /* InvoiceInfoViewController.m in Sources */,
 				9B228DCA183BC0AE008CA80E /* AddChargeTableViewController.m in Sources */,
 				F4E9FE03184272EB00102544 /* Client.m in Sources */,
-				9BDF845D185A66DE00F2B826 /* Postmaster.m in Sources */,
 				9B745BE118310D3E002954A4 /* Freelance_assistant.xcdatamodeld in Sources */,
 				9B745C2D18328A15002954A4 /* ClientsTableViewController.m in Sources */,
+				9BDF84B3185CDB5600F2B826 /* AddressInfoViewController.m in Sources */,
 				9B745BDA18310D3E002954A4 /* main.m in Sources */,
-				9BDF84101850B52000F2B826 /* Invoice+Get_Stored.m in Sources */,
+				9BDF84AA185CD7D300F2B826 /* UserInfoViewController.m in Sources */,
 				9B745C0C18310D66002954A4 /* SWRevealViewController.m in Sources */,
 				9B382D1F18450C0900C635D7 /* Invoice+Create.m in Sources */,
+				9B95F31418650A01007318DC /* Invoice+StoreNewInvoice.m in Sources */,
+				9BDF84A3185CB9D800F2B826 /* SettingsViewController.m in Sources */,
 				F4E9FDDC18426B0800102544 /* InvoicesOverviewViewController.m in Sources */,
 				F44B252F1848A96A0014D97F /* ClientPickerViewController.m in Sources */,
 			);

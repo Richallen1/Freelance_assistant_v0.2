@@ -46,17 +46,16 @@
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 200, 40)];
     headerView.backgroundColor = [UIColor grayColor];
     UILabel *header1View = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 200, 20)];
-    header1View.text = @"kjhkjh ";
+    header1View.text = @"Client Name";
     UILabel *header2View = [[UILabel alloc] initWithFrame:CGRectMake(310, 10, 200, 20)];
-    header2View.text = @"kjhkjh ";
+    header2View.text = @"Company";
     UILabel *header3View = [[UILabel alloc] initWithFrame:CGRectMake(660, 10, 50, 20)];
-    header3View.text = @"kjhkjh ";
+    header3View.text = @"Ammount Outstanding";
 
     [headerView addSubview:header1View];
     [headerView addSubview:header2View];
     [headerView addSubview:header3View];
     self.tableView.tableHeaderView = headerView;
-
     
     [self setupFetchedResultsController];
 }

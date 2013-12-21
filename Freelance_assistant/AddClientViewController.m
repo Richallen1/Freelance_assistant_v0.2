@@ -51,9 +51,7 @@
     AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
     context = [appdelegate managedObjectContext];
 
-   
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -102,6 +100,8 @@
 
     NSError *err;
     [context save:&err];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

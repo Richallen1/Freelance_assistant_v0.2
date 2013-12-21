@@ -12,10 +12,12 @@
 #import "ClientDetailViewController.h"
 #import "Invoice.h"
 #import "invoiceViewController.h"
+#import "InvoiceInfoViewController.h"
 
 @interface InvoicesOverviewViewController ()
 {
     NSManagedObjectContext *context;
+    UIPopoverController *invoiceInfoController;
 }
 @end
 
@@ -52,7 +54,6 @@
     self.tableView.tableHeaderView = headerView;
     
     [self setupFetchedResultsController];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,7 +71,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     Invoice *inv = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -110,6 +111,29 @@
     
     return cell;
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+    }
+}
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%ld", (long)indexPath.row);
+    
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    Invoice *inv = [self.fetchedResultsController objectAtIndexPath:path];
+    
+    
+    NSLog(@"%@", inv);
+    
+   // [self openCustomPopOverForIndexPath:indexPath];
+}
 
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
@@ -134,13 +158,21 @@
         
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
         Invoice *inv = [self.fetchedResultsController objectAtIndexPath:path];
+        NSLog(@"%@", inv);
+        
         [segue.destinationViewController setInvoiceSelected:inv];
-   
     }
-    
+}
+- (void)openCustomPopOverForIndexPath:(NSIndexPath *)indexPath{
+    InvoiceInfoViewController *infoView = [[self storyboard] instantiateViewControllerWithIdentifier:@"InvoiceInfoViewController"];
 
     
     
+    invoiceInfoController = [[UIPopoverController alloc]
+                      initWithContentViewController:infoView];
+    
+    
+    [invoiceInfoController presentPopoverFromRect:CGRectZero inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 @end
