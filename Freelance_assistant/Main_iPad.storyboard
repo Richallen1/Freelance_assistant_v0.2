@@ -1187,7 +1187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrJ-lI-qX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3224" y="-230"/>
+            <point key="canvasLocation" x="3141" y="-282"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5TA-nP-9oa">
@@ -1422,7 +1422,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYJ-3s-L3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3252" y="-286"/>
+            <point key="canvasLocation" x="3268" y="-256"/>
         </scene>
         <!--Add Charge Table View Controller-->
         <scene sceneID="dQx-43-qB2">

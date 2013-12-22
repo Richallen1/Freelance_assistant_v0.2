@@ -14,6 +14,8 @@
 
 @implementation InvoiceInfoViewController
 @synthesize invoiceAtIndexPath=_invoiceAtIndexPath;
+@synthesize test;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,7 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%@", _invoiceAtIndexPath.date);
+    NSLog(@"%@", test);
+    
+    
 
 
 }

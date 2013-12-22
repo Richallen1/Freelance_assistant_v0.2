@@ -36,7 +36,6 @@
 		9B745C341833CC1B002954A4 /* ClientDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C331833CC1B002954A4 /* ClientDetailViewController.m */; };
 		9B745C3718381404002954A4 /* invoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B745C3618381404002954A4 /* invoiceViewController.m */; };
 		9B95F3111860C7C7007318DC /* InvoiceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95F3101860C7C7007318DC /* InvoiceInfoViewController.m */; };
-		9B95F31418650A01007318DC /* Invoice+StoreNewInvoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95F31318650A01007318DC /* Invoice+StoreNewInvoice.m */; };
 		9BDF84A3185CB9D800F2B826 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDF84A2185CB9D800F2B826 /* SettingsViewController.m */; };
 		9BDF84AA185CD7D300F2B826 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDF84A9185CD7D300F2B826 /* UserInfoViewController.m */; };
 		9BDF84B3185CDB5600F2B826 /* AddressInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDF84B2185CDB5600F2B826 /* AddressInfoViewController.m */; };
@@ -109,8 +108,6 @@
 		9B745C3618381404002954A4 /* invoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = invoiceViewController.m; sourceTree = "<group>"; };
 		9B95F30F1860C7C7007318DC /* InvoiceInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoiceInfoViewController.h; sourceTree = "<group>"; };
 		9B95F3101860C7C7007318DC /* InvoiceInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoiceInfoViewController.m; sourceTree = "<group>"; };
-		9B95F31218650A01007318DC /* Invoice+StoreNewInvoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Invoice+StoreNewInvoice.h"; sourceTree = "<group>"; };
-		9B95F31318650A01007318DC /* Invoice+StoreNewInvoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Invoice+StoreNewInvoice.m"; sourceTree = "<group>"; };
 		9BDF84A1185CB9D800F2B826 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		9BDF84A2185CB9D800F2B826 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		9BDF84A8185CD7D300F2B826 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoViewController.h; path = ../UserInfoViewController.h; sourceTree = "<group>"; };
@@ -228,9 +225,9 @@
 				9B745C3518381404002954A4 /* invoiceViewController.h */,
 				9B745C3618381404002954A4 /* invoiceViewController.m */,
 				9B228DC8183BC0AE008CA80E /* AddChargeTableViewController.h */,
-				9B228DC9183BC0AE008CA80E /* AddChargeTableViewController.m */,
 				F4E9FDDA18426B0800102544 /* InvoicesOverviewViewController.h */,
 				F4E9FDDB18426B0800102544 /* InvoicesOverviewViewController.m */,
+				9B228DC9183BC0AE008CA80E /* AddChargeTableViewController.m */,
 				F44B252D1848A96A0014D97F /* ClientPickerViewController.h */,
 				F44B252E1848A96A0014D97F /* ClientPickerViewController.m */,
 				9B95F30F1860C7C7007318DC /* InvoiceInfoViewController.h */,
@@ -278,8 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				9B745C0118310D66002954A4 /* Main_iPad.storyboard */,
-				9B95F31218650A01007318DC /* Invoice+StoreNewInvoice.h */,
-				9B95F31318650A01007318DC /* Invoice+StoreNewInvoice.m */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -490,7 +485,6 @@
 				9BDF84AA185CD7D300F2B826 /* UserInfoViewController.m in Sources */,
 				9B745C0C18310D66002954A4 /* SWRevealViewController.m in Sources */,
 				9B382D1F18450C0900C635D7 /* Invoice+Create.m in Sources */,
-				9B95F31418650A01007318DC /* Invoice+StoreNewInvoice.m in Sources */,
 				9BDF84A3185CB9D800F2B826 /* SettingsViewController.m in Sources */,
 				F4E9FDDC18426B0800102544 /* InvoicesOverviewViewController.m in Sources */,
 				F44B252F1848A96A0014D97F /* ClientPickerViewController.m in Sources */,

@@ -13,4 +13,6 @@
 
 @property (strong, nonatomic)Invoice *invoiceAtIndexPath;
 
+@property (strong, nonatomic)NSString *test;
+
 @end

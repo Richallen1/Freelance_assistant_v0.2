@@ -76,6 +76,9 @@
     AppDelegate *appdelegate = [[UIApplication sharedApplication]delegate];
     context = [appdelegate managedObjectContext];
     self.clientName.delegate = self;
+    
+    
+
 }
 /**********************************************************
  Method:(void)getUserInformation

@@ -18,6 +18,7 @@
 {
     NSManagedObjectContext *context;
     UIPopoverController *invoiceInfoController;
+    NSArray *InvoiceRowObjects;
 }
 @end
 
@@ -120,37 +121,60 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //add code here for when you hit delete
+    
+        Invoice *inv = [InvoiceRowObjects objectAtIndex:indexPath.row];
+        
+        [self deleteInvoiceWithNumber:inv.invoiceNumber];
+        [tableView reloadData];
+        NSLog(@"DELETE ROW NUMBER %ld", (long)indexPath.row);
     }
 }
--(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+/**********************************************************
+ Method:(void)deleteInvoiceWithNumber:(NSString *)invNumber
+ Description:Deletes a invoice for a given invoice number
+ Tag:Core Data
+ **********************************************************/
+-(void)deleteInvoiceWithNumber:(NSString *)invNumber
 {
-    NSLog(@"%ld", (long)indexPath.row);
-    
-    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-    Invoice *inv = [self.fetchedResultsController objectAtIndexPath:path];
-    
-    
-    NSLog(@"%@", inv);
-    
-   // [self openCustomPopOverForIndexPath:indexPath];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Invoice"];
+    request.predicate = [NSPredicate predicateWithFormat:@"invoiceNumber = %@", invNumber];
+    NSError *error = nil;
+    NSArray *invoices = [context executeFetchRequest:request error:&error];
+    if (invoices.count == 0) {
+        //Nothing to Delete.
+    }
+    if (invoices.count == 1) {
+        //Delete all invoices matching that unique number!
+        for (NSManagedObject *invoice in invoices) {
+            [context deleteObject:invoice];
+        }
+    }
 }
+
 
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
-    
-    NSLog(@"sdfsdfsdf");
+    NSError *error = nil;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Invoice"];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date"
                                                                                      ascending:YES
                                                                                       selector:@selector(localizedCaseInsensitiveCompare:)]];
     
-    
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:context
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
+    
+    
+    InvoiceRowObjects = [context executeFetchRequest:request error:&error];
+    
 }
-
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%ld", (long)indexPath.row);
+    [self openCustomPopOverForIndexPath:indexPath];
+    
+}
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"Did_Select_Segue"]) {
@@ -162,16 +186,19 @@
         
         [segue.destinationViewController setInvoiceSelected:inv];
     }
+   
+        
+    
 }
 - (void)openCustomPopOverForIndexPath:(NSIndexPath *)indexPath{
     InvoiceInfoViewController *infoView = [[self storyboard] instantiateViewControllerWithIdentifier:@"InvoiceInfoViewController"];
+    
+    Invoice *inv = [InvoiceRowObjects objectAtIndex:indexPath.row];
 
-    
-    
+    NSLog(@"%@", inv.date);
     invoiceInfoController = [[UIPopoverController alloc]
                       initWithContentViewController:infoView];
-    
-    
+
     [invoiceInfoController presentPopoverFromRect:CGRectZero inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
